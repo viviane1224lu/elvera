@@ -4,6 +4,10 @@
  */
 window.ELV_I18N = {
   'zh-TW': {
+    "9 sizes, 3 colors": "9 個尺寸、3 種顏色",
+    "Women's health · Menopause · Senior care · Family, all in one ring.": "女性健康 · 更年期 · 長者照顧 · 家人分享，一枚戒指全包。",
+    "Five languages": "五種語言",
+    "English, 繁中, 简中, Español and 日本語.": "英文、繁中、簡中、西班牙文和日文。",
     "Not sure of your size? See the size guide": "不確定尺寸？看尺寸對照",
     "Not sure of your size? Measure the inside of a ring that fits you, then match it below.": "不確定尺寸？量一下你合適的戒指內徑，再對照下面的尺寸。",
     "We suggest your index or middle finger. The right size feels snug without spinning. Measure the inside of a ring that fits you and match its diameter:": "建議戴在食指或中指，合適的尺寸是不緊、也不會轉來轉去。量一下你合適的戒指內徑，對照這張表：",
@@ -127,6 +131,10 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': '結帳功能即將開放，謝謝你耐心等候！',
   },
   es: {
+    "9 sizes, 3 colors": "9 tallas, 3 colores",
+    "Women's health · Menopause · Senior care · Family, all in one ring.": "Salud de la mujer · Menopausia · Mayores · Familia: todo en un anillo.",
+    "Five languages": "Cinco idiomas",
+    "English, 繁中, 简中, Español and 日本語.": "Inglés, chino tradicional, chino simplificado, español y japonés.",
     "Not sure of your size? See the size guide": "¿No sabes tu talla? Mira la guía de tallas",
     "Not sure of your size? Measure the inside of a ring that fits you, then match it below.": "¿No sabes tu talla? Mide por dentro un anillo que te quede bien y compáralo abajo.",
     "We suggest your index or middle finger. The right size feels snug without spinning. Measure the inside of a ring that fits you and match its diameter:": "Te sugerimos el índice o el medio. La talla correcta queda ajustada sin girar. Mide por dentro un anillo que te quede bien y compara su diámetro:",
@@ -238,6 +246,10 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': 'El pago abre pronto. ¡Gracias por tu paciencia!',
   },
   ja: {
+    "9 sizes, 3 colors": "9サイズ・3カラー",
+    "Women's health · Menopause · Senior care · Family, all in one ring.": "女性の健康 · 更年期 · シニア · 家族。すべてをひとつのリングで。",
+    "Five languages": "5つの言語",
+    "English, 繁中, 简中, Español and 日本語.": "英語、繁体字、簡体字、スペイン語、日本語。",
     "Not sure of your size? See the size guide": "サイズがわからない？サイズ表を見る",
     "Not sure of your size? Measure the inside of a ring that fits you, then match it below.": "サイズがわからない時は、ぴったりの指輪の内径を測って下の表と比べてください。",
     "We suggest your index or middle finger. The right size feels snug without spinning. Measure the inside of a ring that fits you and match its diameter:": "人差し指か中指がおすすめです。きつくなく、回らないサイズが正解。ぴったりの指輪の内径を測って、この表と比べてください：",
