@@ -4,6 +4,8 @@
  */
 window.ELV_I18N = {
   'zh-TW': {
+    "🔔 Your phone alerts you gently if something's off": "🔔 不對勁時，手機會輕輕提醒你",
+    "Your phone alerts you gently if it runs far above your usual while you rest.": "休息時比平常快很多，手機會輕輕提醒你。",
     "Phone & watch alerts": "手機和手錶都會提醒",
     "Reminders and body alerts ring on your phone, and buzz on your smartwatch too if you wear one.": "吃藥提醒和身體提醒會在手機上響，有戴智慧手錶的話，手錶也會震動。",
     "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "平常散步時就會量。看看你的心肺年齡，跟同年紀的人比起來如何。",
@@ -183,6 +185,8 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': '結帳功能即將開放，謝謝你耐心等候！',
   },
   es: {
+    "🔔 Your phone alerts you gently if something's off": "🔔 Tu teléfono te avisa con suavidad si algo va mal",
+    "Your phone alerts you gently if it runs far above your usual while you rest.": "Tu teléfono te avisa con suavidad si va muy por encima de lo habitual en reposo.",
     "Phone & watch alerts": "Alertas en teléfono y reloj",
     "Reminders and body alerts ring on your phone, and buzz on your smartwatch too if you wear one.": "Los recordatorios y alertas suenan en tu teléfono, y también vibran en tu reloj inteligente si usas uno.",
     "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "Se mide en tus paseos diarios. Mira tu edad física y cómo te comparas con personas de tu edad.",
@@ -350,6 +354,8 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': 'El pago abre pronto. ¡Gracias por tu paciencia!',
   },
   ja: {
+    "🔔 Your phone alerts you gently if something's off": "🔔 いつもと違う時は、スマホがそっとお知らせ",
+    "Your phone alerts you gently if it runs far above your usual while you rest.": "安静時に普段よりかなり速い時は、スマホがそっとお知らせします。",
     "Phone & watch alerts": "スマホと時計でお知らせ",
     "Reminders and body alerts ring on your phone, and buzz on your smartwatch too if you wear one.": "リマインダーや体のお知らせはスマホで鳴り、スマートウォッチをつけていれば時計でも振動します。",
     "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "毎日の散歩で測定。心肺年齢と、同年代との比較がわかります。",
