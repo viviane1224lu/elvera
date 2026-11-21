@@ -4,6 +4,8 @@
  */
 window.ELV_I18N = {
   'zh-TW': {
+    "Phone & watch alerts": "手機和手錶都會提醒",
+    "Reminders and body alerts ring on your phone, and buzz on your smartwatch too if you wear one.": "吃藥提醒和身體提醒會在手機上響，有戴智慧手錶的話，手錶也會震動。",
     "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "平常散步時就會量。看看你的心肺年齡，跟同年紀的人比起來如何。",
     "Fitness age 38": "心肺年齡 38",
     "Mexico": "墨西哥",
@@ -181,6 +183,8 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': '結帳功能即將開放，謝謝你耐心等候！',
   },
   es: {
+    "Phone & watch alerts": "Alertas en teléfono y reloj",
+    "Reminders and body alerts ring on your phone, and buzz on your smartwatch too if you wear one.": "Los recordatorios y alertas suenan en tu teléfono, y también vibran en tu reloj inteligente si usas uno.",
     "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "Se mide en tus paseos diarios. Mira tu edad física y cómo te comparas con personas de tu edad.",
     "Fitness age 38": "Edad física 38",
     "Mexico": "México",
@@ -346,6 +350,8 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': 'El pago abre pronto. ¡Gracias por tu paciencia!',
   },
   ja: {
+    "Phone & watch alerts": "スマホと時計でお知らせ",
+    "Reminders and body alerts ring on your phone, and buzz on your smartwatch too if you wear one.": "リマインダーや体のお知らせはスマホで鳴り、スマートウォッチをつけていれば時計でも振動します。",
     "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "毎日の散歩で測定。心肺年齢と、同年代との比較がわかります。",
     "Fitness age 38": "心肺年齢 38",
     "Mexico": "メキシコ",
