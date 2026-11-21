@@ -296,6 +296,7 @@
   .empty { text-align: center; color: var(--soft); padding: 60px 10px; }
   .sumbox { padding: 18px 24px 26px; border-top: 1px solid var(--line); background: #fff; }
   .ship { display: grid; gap: 8px; margin-bottom: 14px; }
+  .duty { font-size: 13px; color: var(--soft); margin: -6px 0 12px; display: none; }
   .ship-to { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: 600; font-size: 15px; }
   .ship-to select { min-height: 40px; border-radius: 12px; border: 1.5px solid var(--line); background: #fff; padding: 0 10px; font: 500 15px Inter; color: var(--ink); }
   .ship label { display: flex; justify-content: space-between; align-items: center; gap: 10px; border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 14px; cursor: pointer; font-size: 15px; }
@@ -341,6 +342,18 @@
   .unique p { color: var(--soft); font-size: 15.5px; margin-top: 4px; line-height: 1.5; }
   @media (max-width: 920px) { .diff-grid { grid-template-columns: 1fr; } }
 
+
+  /* daily diary */
+  .diary { background: var(--cream); }
+  .diary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 50px; }
+  .diary-grid > div { border-radius: 26px; padding: 26px; background: #fff; border: 1px solid var(--line); }
+  .diary-grid span { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 18px; font-size: 28px; }
+  .diary-grid h3 { font-family: Inter, sans-serif; font-weight: 700; font-size: 18px; margin-top: 14px; }
+  .diary-grid p { color: var(--soft); font-size: 15.5px; margin-top: 6px; line-height: 1.5; }
+  .diary-grid .ex { margin-top: 14px; background: var(--sand); border-radius: 14px; padding: 10px 12px; font-size: 14px; color: #6b5440; }
+  @media (max-width: 920px) { .diary-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .diary-grid { grid-template-columns: 1fr; } }
+
   footer { background: var(--night); color: rgba(255, 255, 255, 0.6); padding: 48px 0 60px; font-size: 15px; }
   footer .row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   footer b { color: #fff; }
@@ -379,6 +392,7 @@
       <a href="#different">Why ELVÉRA</a>
       <a href="#day">A day with it</a>
       <a href="#signals">Features</a>
+      <a href="#diary">Diary</a>
       <a href="#tour">The app</a>
       <a href="#faq">Questions</a>
       <select id="lang" aria-label="Language" class="lang"><option value="en">🌐 English</option><option value="zh-TW">繁體中文</option><option value="zh-CN">简体中文</option><option value="es">Español</option><option value="ja">日本語</option></select>
@@ -452,13 +466,13 @@
     <div class="diff-grid">
       <table class="compare">
         <tr><th></th><th class="us">ELVÉRA</th><th>Most smart rings</th></tr>
-        <tr><td>Works with iPhone and Android</td><td class="us">✓</td><td class="them">Not always</td></tr><tr><td>Big text, plain words for every age</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Alerts based on your own usual</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Family sharing with care alerts</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Menopause care, for women and men</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Senior care and fall-prevention tips</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Medicine reminders</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>One-tap doctor report (PDF)</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>English, 繁中, 简中, Español, 日本語</td><td class="us">✓</td><td class="them">Some</td></tr>
+        <tr><td>Works with iPhone and Android</td><td class="us">✓</td><td class="them">Not always</td></tr><tr><td>Big text, plain words for every age</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Alerts based on your own usual</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Fitness age from everyday walks</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Stress check with calm-breathing tips</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Daily diary: meals, mood, blood pressure, sugar</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Family sharing with care alerts</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Menopause care, for women and men</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Senior care and fall-prevention tips</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Medicine reminders</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>One-tap doctor report (PDF)</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>English, 繁中, 简中, Español, 日本語</td><td class="us">✓</td><td class="them">Some</td></tr>
       </table>
       <div class="unique">
         <div><span>🌿</span><div><b>Menopause care, for her and for him</b><p>Sleep, hot flashes, heart and mood, with daily guidance through midlife. A first for smart rings.</p></div></div>
         <div><span>👵</span><div><b>Senior care that keeps parents safe</b><p>Age-right step goals, fall-prevention tips, medicine alarms and an alert when heart rate looks unusual.</p></div></div>
         <div><span>💛</span><div><b>Family that looks out for each other</b><p>See how loved ones are doing at a glance, and get a gentle note when someone might need a call.</p></div></div>
-        <div><span>📄</span><div><b>Ready for the doctor</b><p>One tap turns weeks of readings into a clear PDF to print or send before your visit.</p></div></div>
+        <div><span>🫁</span><div><b>Your fitness age, from a simple walk</b><p>Walk six minutes and see how your heart and lungs compare with people your age, then watch the number get younger.</p></div></div><div><span>🍃</span><div><b>Stress you can see, and soothe</b><p>When stress runs high for you, ELVÉRA notices and invites you to pause and breathe for a minute.</p></div></div><div><span>📄</span><div><b>Ready for the doctor</b><p>One tap turns weeks of readings into a clear PDF to print or send before your visit.</p></div></div>
         <div><span>🔠</span><div><b>Easy for every age</b><p>Big text, simple words and five languages. If Grandma can read it, everyone can.</p></div></div>
       </div>
     </div>
@@ -625,6 +639,23 @@
   </div>
 </section>
 
+<!-- DAILY DIARY -->
+<section class="diary" id="diary">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Your daily health diary</div>
+      <h2>Everything about your day, <em>in one gentle place.</em></h2>
+      <p class="lead">The ring measures. You add the rest in a tap or two, and ELVÉRA keeps it all together, ready to share with your doctor. Readings you type in are for your own records, not a diagnosis.</p>
+    </div>
+    <div class="diary-grid">
+      <div><span style="background:#fdeadc">🍱</span><h3>Meals</h3><p>Snap a photo of breakfast, lunch or dinner. See your week of meals in a calendar and an album.</p><div class="ex">Lunch · salmon rice bowl 📷</div></div>
+      <div><span style="background:#e6e4fb">😊</span><h3>Mood &amp; journal</h3><p>Note how you feel and how tired you are, and keep a little journal with a photo and a few words. Spot the days that lift you up.</p><div class="ex">Journal: "Lovely walk with Mia today 🌸"</div></div>
+      <div><span style="background:#fde4dc">🩺</span><h3>Blood pressure</h3><p>Type in your own cuff readings, or bring them in from Apple Health, and see them over time.</p><div class="ex">119 / 77 · this morning</div></div>
+      <div><span style="background:#dcf3f0">🩸</span><h3>Blood sugar</h3><p>Type in your own meter readings before or after meals, or bring them in from Apple Health, for your records.</p><div class="ex">97 mg/dL · before breakfast</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- EXTRAS -->
 <section class="extras">
   <div class="wrap">
@@ -634,6 +665,7 @@
     </div>
     <div class="ex-grid">
       <div><span>💊</span><h3>Medicine reminders</h3><p>Rings like an alarm, so no dose is missed.</p></div>
+      <div><span>🔥</span><h3>Calorie counting</h3><p>Log your meals and see calories against a daily goal that fits you.</p></div>
       <div><span>📄</span><h3>Doctor report</h3><p>One tap makes a clear PDF for your next visit.</p></div>
       <div><span>✨</span><h3>AI coach</h3><p>Ask about your numbers, get kind, practical tips.</p></div>
       <div><span>⌚</span><h3>Watch alerts</h3><p>Reminders buzz on your smartwatch, too.</p></div>
@@ -733,8 +765,9 @@
   <header><h3>Your cart</h3><button class="x" id="closeCart" aria-label="Close">✕</button></header>
   <div class="items" id="items"></div>
   <div class="sumbox" id="sumbox">
-    <div class="ship-to"><span>Ship to</span><select id="region" aria-label="Ship to"><option value="US">United States</option><option value="CA">Canada</option><option value="INTL">Other countries</option></select></div>
+    <div class="ship-to"><span>Ship to</span><select id="region" aria-label="Ship to"><option value="US">United States</option><option value="CA">Canada</option><option value="MX">Mexico</option><option value="TW">Taiwan</option><option value="HK">Hong Kong</option><option value="JP">Japan</option><option value="KR">South Korea</option><option value="SG">Singapore & Malaysia</option><option value="AU">Australia & New Zealand</option><option value="UK">United Kingdom</option><option value="EU">Europe</option><option value="INTL">Other countries</option></select></div>
     <div class="ship" id="shipOpts"></div>
+    <div class="duty" id="duty">Import duties or taxes may be charged by your country on delivery.</div>
     <div class="line"><span>Subtotal</span><span id="sub">$0.00</span></div>
     <div class="line"><span>Shipping</span><span id="shipAmt">Free</span></div>
     <div class="line"><span>Sales tax</span><span>Calculated at checkout</span></div>
@@ -762,7 +795,16 @@
   var SHIP = {
     US: [['Standard · 5–7 business days', 7.95], ['Expedited · 2–3 business days', 14.95], ['Overnight · 1 business day', 29.95]],
     CA: [['DHL Express · 3–5 business days', 24.95]],
-    INTL: [['DHL Express · 4–8 business days', 34.95]],
+    MX: [['DHL Express · 3–6 business days', 29.95]],
+    TW: [['DHL Express · 4–7 business days', 34.95]],
+    HK: [['DHL Express · 4–7 business days', 34.95]],
+    JP: [['DHL Express · 4–7 business days', 34.95]],
+    KR: [['DHL Express · 4–7 business days', 34.95]],
+    SG: [['DHL Express · 4–7 business days', 34.95]],
+    AU: [['DHL Express · 5–8 business days', 39.95]],
+    UK: [['DHL Express · 4–7 business days', 39.95]],
+    EU: [['DHL Express · 4–8 business days', 39.95]],
+    INTL: [['DHL Express · 5–10 business days', 44.95]],
   };
   var APP_LINK = 'https://elvera.app/get';      // QR code + store buttons (replace when the app is live)
   var CHECKOUT_URL = '';                 // Shopify / Stripe checkout link (empty = not open yet)
@@ -871,6 +913,7 @@
   }
   function shipOptions() {
     var opts = SHIP[$('region').value] || SHIP.US;
+    $('duty').style.display = $('region').value === 'US' ? 'none' : 'block';
     $('shipOpts').innerHTML = opts.map(function (o, i) {
       return '<label><span><input type="radio" name="ship" value="' + o[1] + '"' + (i === 0 ? ' checked' : '') + '>' + T(o[0]) + '</span><b>' + money(o[1]) + '</b></label>';
     }).join('');
@@ -911,6 +954,7 @@
       var cjk = l === 'zh-TW' || l === 'zh-CN' || l === 'ja';
       o[0].nodeValue = t === key ? raw : cjk ? t : raw.replace(raw.trim(), t);
     });
+    document.querySelectorAll('#region option').forEach(function (o) { o.dataset.en = o.dataset.en || o.textContent; o.textContent = T(o.dataset.en); });
     $('cname').textContent = T(pick.color);
     var on = btns.querySelector('button.on');
     if (on) $('mm').textContent = on.dataset.s + ' · ' + on.dataset.mm + ' mm ' + T('inside');
