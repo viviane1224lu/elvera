@@ -4,6 +4,8 @@
  */
 window.ELV_I18N = {
   'zh-TW': {
+    "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "平常散步時就會量。看看你的心肺年齡，跟同年紀的人比起來如何。",
+    "Fitness age 38": "心肺年齡 38",
     "Mexico": "墨西哥",
     "Taiwan": "台灣",
     "Hong Kong": "香港",
@@ -117,8 +119,8 @@ window.ELV_I18N = {
     "ELVÉRA learns what's normal for you. Each day you see what's different, in big, clear text and simple words like Steady, Slow or Strong. No charts to decode.": 'ELVÉRA 會認識你的平常。每天用大字和簡單的詞告訴你哪裡不一樣，像「平穩」「慢」「很有精神」。不用看懂複雜圖表。',
     '👵 Easy for every age': '👵 每個年紀都看得懂', "🔔 A gentle buzz if something's off": '🔔 不對勁時輕輕震動提醒', '🌐 English · 繁中 · 简中 · Español · 日本語': '🌐 英文 · 繁中 · 簡中 · 西班牙文 · 日文',
     'Always on, all day': '全天候陪伴',
-    'Six things your body': '身體想告訴你的',
-    'is telling you.': '六件事。',
+    'Seven things your body': '身體想告訴你的',
+    'is telling you.': '七件事。',
     'Measured automatically every hour and through the night, so you never have to remember.': '每小時和整晚自動量，你完全不用記得。',
     'Heart rate': '心率', 'A gentle buzz if it runs far above your usual while you rest.': '休息時比平常快很多，會輕輕震動提醒你。', 'Steady': '平穩',
     'Checked while you sleep, with a sleep-breathing check.': '睡覺時也在量，還會看睡眠呼吸。', 'Normal': '正常',
@@ -179,6 +181,8 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': '結帳功能即將開放，謝謝你耐心等候！',
   },
   es: {
+    "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "Se mide en tus paseos diarios. Mira tu edad física y cómo te comparas con personas de tu edad.",
+    "Fitness age 38": "Edad física 38",
     "Mexico": "México",
     "Taiwan": "Taiwán",
     "Hong Kong": "Hong Kong",
@@ -287,7 +291,7 @@ window.ELV_I18N = {
     'Made for real people': 'Hecho para personas reales', 'Compared with': 'Comparado con', 'your': 'lo', "usual, not a stranger's.": 'habitual para ti, no para otros.',
     "ELVÉRA learns what's normal for you. Each day you see what's different, in big, clear text and simple words like Steady, Slow or Strong. No charts to decode.": 'ELVÉRA aprende lo que es normal para ti. Cada día ves qué cambió, con letra grande y palabras como Estable, Lento o Fuerte. Sin gráficos difíciles.',
     '👵 Easy for every age': '👵 Fácil a cualquier edad', "🔔 A gentle buzz if something's off": '🔔 Una vibración suave si algo va mal', '🌐 English · 繁中 · 简中 · Español · 日本語': '🌐 Inglés · Chino · Español · Japonés',
-    'Always on, all day': 'Siempre activo, todo el día', 'Six things your body': 'Seis cosas que tu cuerpo', 'is telling you.': 'te está diciendo.',
+    'Always on, all day': 'Siempre activo, todo el día', 'Seven things your body': 'Siete cosas que tu cuerpo', 'is telling you.': 'te está diciendo.',
     'Measured automatically every hour and through the night, so you never have to remember.': 'Se mide sola cada hora y durante la noche; no tienes que recordar nada.',
     'Heart rate': 'Frecuencia cardiaca', 'A gentle buzz if it runs far above your usual while you rest.': 'Una vibración suave si va muy por encima de lo habitual en reposo.', 'Steady': 'Estable',
     'Checked while you sleep, with a sleep-breathing check.': 'Se revisa mientras duermes, con control de la respiración.', 'Normal': 'Normal',
@@ -342,6 +346,8 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': 'El pago abre pronto. ¡Gracias por tu paciencia!',
   },
   ja: {
+    "Measured on your everyday walks. See your fitness age, and how you compare with people your age.": "毎日の散歩で測定。心肺年齢と、同年代との比較がわかります。",
+    "Fitness age 38": "心肺年齢 38",
     "Mexico": "メキシコ",
     "Taiwan": "台湾",
     "Hong Kong": "香港",
@@ -451,7 +457,7 @@ window.ELV_I18N = {
     'Made for real people': 'ふつうの人のために', 'Compared with': '比べるのは', 'your': 'あなた自身の', "usual, not a stranger's.": '「普段」。他人ではありません。',
     "ELVÉRA learns what's normal for you. Each day you see what's different, in big, clear text and simple words like Steady, Slow or Strong. No charts to decode.": 'ELVÉRAはあなたの「普段」を覚えます。毎日、何が違うかを大きな文字と「安定」「ゆっくり」「元気」などの言葉で。難しいグラフはいりません。',
     '👵 Easy for every age': '👵 どの年代にもやさしい', "🔔 A gentle buzz if something's off": '🔔 いつもと違う時はそっと振動', '🌐 English · 繁中 · 简中 · Español · 日本語': '🌐 英語 · 繁体字 · 簡体字 · スペイン語 · 日本語',
-    'Always on, all day': '一日中、いつも見守り', 'Six things your body': '体が伝えている', 'is telling you.': '6つのこと。',
+    'Always on, all day': '一日中、いつも見守り', 'Seven things your body': '体が伝えている', 'is telling you.': '7つのこと。',
     'Measured automatically every hour and through the night, so you never have to remember.': '1時間ごと、そして夜通し自動で測定。覚えておく必要はありません。',
     'Heart rate': '心拍数', 'A gentle buzz if it runs far above your usual while you rest.': '安静時に普段よりかなり速い時は、そっと振動でお知らせ。', 'Steady': '安定',
     'Checked while you sleep, with a sleep-breathing check.': '寝ている間に測定し、睡眠中の呼吸もチェック。', 'Normal': '正常',
