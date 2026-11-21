@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELVÉRA ONE</title>
+<meta name="description" content="ELVÉRA is a smart health ring and app that looks after you and your family, in plain words, for every age.">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf8f1;
+    --sand: #f6ece0;
+    --peach: #fbe1cc;
+    --mist: #e7f1fb;
+    --sky: #8fc0ea;
+    --ocean: #2a6fc4;
+    --night: #13284a;
+    --ink: #1d2733;
+    --soft: #5e6873;
+    --faint: #939ca6;
+    --line: rgba(29, 39, 51, 0.1);
+    --lime: #c9f03a;
+    --green: #2b7a5f;
+    --coral: #ef7d5e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font: 18px/1.65 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 500; line-height: 1.1; margin: 0; letter-spacing: -0.015em; }
+  h2 { font-size: clamp(34px, 4.4vw, 54px); }
+  h2 em, h1 em { font-style: italic; font-weight: 400; color: var(--ocean); }
+  h3 { font-size: 24px; }
+  p { margin: 0; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; color: var(--coral); }
+  .lead { font-size: 20px; color: var(--soft); max-width: 600px; margin-top: 18px; }
+  .center { text-align: center; }
+  .center .lead { margin-left: auto; margin-right: auto; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 0 30px; border-radius: 999px; font-weight: 600; font-size: 18px; text-decoration: none; border: 0; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-main { background: var(--night); color: #fff; box-shadow: 0 10px 24px rgba(19, 40, 74, 0.25); }
+  .btn-soft { background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+  section { padding: 110px 0; position: relative; overflow: hidden; }
+  .card { background: #fff; border-radius: 28px; border: 1px solid var(--line); }
+
+  /* nav */
+  nav { position: fixed; inset: 0 0 auto; z-index: 20; transition: background 0.3s, box-shadow 0.3s; }
+  nav.solid { background: rgba(253, 248, 241, 0.92); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: Fraunces, serif; font-size: 22px; letter-spacing: 0.22em; }
+  .logo img { width: 34px; height: 34px; border-radius: 9px; }
+  .links { display: flex; gap: 28px; align-items: center; font-size: 15px; }
+  .links a { text-decoration: none; color: var(--soft); }
+  .links a:hover { color: var(--ink); }
+  .links .btn { min-height: 42px; padding: 0 20px; font-size: 15px; color: #fff; }
+
+  /* hero: a warm sunrise */
+  .hero { background: linear-gradient(180deg, #fde3cc 0%, #fbeedf 38%, #e4effa 100%); padding: 150px 0 80px; }
+  .hero::before { content: ""; position: absolute; width: 520px; height: 520px; right: 6%; top: 90px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 214, 160, 0.9), rgba(255, 214, 160, 0) 65%); }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; position: relative; }
+  .hero h1 { font-size: clamp(50px, 7.4vw, 96px); font-weight: 300; }
+  .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
+  .hero .note { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; font-size: 15px; color: var(--soft); }
+  .hero .note span::before { content: "✓"; color: var(--green); font-weight: 700; margin-right: 6px; }
+  .hero-ring { position: relative; aspect-ratio: 1; }
+  .hero-ring .orbit { position: absolute; inset: 2%; border-radius: 50%; border: 1.5px dashed rgba(42, 111, 196, 0.25); animation: spin 70s linear infinite; }
+  .hero-ring .orbit.o2 { inset: 13%; border: 1px solid rgba(42, 111, 196, 0.12); animation-duration: 100s; animation-direction: reverse; }
+  .hero-ring .ring { position: absolute; inset: 16%; width: 68%; animation: float 6s ease-in-out infinite; }
+  .bubble { position: absolute; background: #fff; border-radius: 18px; padding: 10px 14px; box-shadow: 0 14px 30px rgba(29, 39, 51, 0.12); font-size: 14px; line-height: 1.3; animation: float 7s ease-in-out infinite; }
+  .bubble b { display: block; font-size: 20px; font-family: Fraunces, serif; font-weight: 500; }
+  .bubble .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  .b1 { left: -2%; top: 18%; animation-delay: -1s; }
+  .b2 { right: -2%; top: 8%; animation-delay: -3s; }
+  .b3 { right: 2%; bottom: 14%; animation-delay: -5s; }
+  .b4 { left: 4%; bottom: 8%; animation-delay: -2s; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes float { 50% { transform: translateY(-10px); } }
+  .strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 70px; position: relative; }
+  .strip div { background: rgba(255, 255, 255, 0.7); border-radius: 20px; padding: 16px 8px; text-align: center; font-size: 14px; color: var(--soft); line-height: 1.35; }
+  .strip span { display: block; font-size: 26px; margin-bottom: 6px; }
+
+  /* a day with ELVÉRA */
+  .day { background: var(--cream); }
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 56px; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 4%; right: 4%; top: 34px; height: 2px; background: repeating-linear-gradient(90deg, var(--sky) 0 8px, transparent 8px 16px); }
+  .moment { position: relative; }
+  .moment .time { width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center; font-size: 28px; margin-bottom: 18px; box-shadow: 0 0 0 8px var(--cream); position: relative; }
+  .moment .card { padding: 22px; }
+  .moment small { font-weight: 600; color: var(--coral); letter-spacing: 0.06em; }
+  .moment h3 { font-size: 21px; margin-top: 6px; }
+  .moment p { color: var(--soft); font-size: 15.5px; margin-top: 8px; line-height: 1.55; }
+  .moment .say { margin-top: 14px; background: var(--sand); border-radius: 16px 16px 16px 4px; padding: 10px 14px; font-size: 14.5px; font-style: italic; color: #6b5440; }
+
+  /* slim */
+  .slim { background: linear-gradient(180deg, var(--cream), var(--mist)); }
+  .slim .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .big-num { font-family: Fraunces, serif; font-weight: 300; font-size: clamp(110px, 15vw, 190px); line-height: 0.9; color: var(--ocean); letter-spacing: -0.04em; }
+  .big-num small { font-size: 0.3em; letter-spacing: 0; color: var(--ink); }
+  .facts { display: flex; gap: 34px; flex-wrap: wrap; margin-top: 30px; }
+  .facts div { color: var(--soft); font-size: 15px; }
+  .facts b { display: block; font-family: Fraunces, serif; font-size: 30px; font-weight: 500; color: var(--ink); }
+
+  /* usual */
+  .usual { background: var(--mist); }
+  .usual .wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: center; }
+  .phone { width: 300px; border-radius: 46px; padding: 11px; background: #101820; box-shadow: 0 40px 80px rgba(19, 40, 74, 0.22); margin: 0 auto; }
+  .phone img { border-radius: 36px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .chip { padding: 10px 16px; border-radius: 999px; background: #fff; font-size: 15px; font-weight: 500; }
+
+  /* six signals */
+  .signals { background: #fff; }
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 54px; }
+  .tile { border-radius: 28px; padding: 26px; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+  .tile h3 { font-family: Inter, sans-serif; font-weight: 700; font-size: 19px; display: flex; align-items: center; gap: 10px; }
+  .tile h3 span { width: 38px; height: 38px; border-radius: 12px; background: rgba(255, 255, 255, 0.75); display: grid; place-items: center; font-size: 19px; }
+  .tile p { font-size: 15.5px; color: rgba(29, 39, 51, 0.75); margin-top: 10px; line-height: 1.5; max-width: 260px; }
+  .tile .val { font-family: Fraunces, serif; font-size: 50px; font-weight: 500; line-height: 1; margin-top: 18px; }
+  .tile .val small { font-family: Inter; font-size: 15px; font-weight: 500; color: var(--soft); margin-left: 4px; }
+  .tile .word { position: absolute; right: 22px; bottom: 26px; background: rgba(255, 255, 255, 0.8); padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .t1 { background: #fde4dc; } .t2 { background: #dcf3f0; } .t3 { background: #e3f3df; }
+  .t4 { background: #e6e4fb; } .t5 { background: #fdeadc; } .t6 { background: #f1f8d2; }
+
+  /* fitness */
+  .fitness { background: linear-gradient(180deg, #fff, var(--sand)); }
+  .fitness .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .gauge-card { padding: 36px; text-align: center; }
+  .zones { display: flex; gap: 6px; margin-top: 28px; max-width: 460px; }
+  .zones div { flex: 1; text-align: center; font-size: 13px; color: var(--soft); }
+  .zones i { display: block; height: 14px; border-radius: 7px; margin-bottom: 6px; }
+
+  /* care */
+  .care { background: var(--cream); }
+  .care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 50px; }
+  .only { position: absolute; top: 22px; right: 22px; background: var(--night); color: #fff; font: 700 12px Inter; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; }
+  .c-meno { background: linear-gradient(160deg, #f3ecfc, #e2d6f6); }
+  .c-meno p, .c-meno li { color: #4a3b6b; }
+  .c-senior { background: linear-gradient(160deg, #eaf5e6, #d3ebcb); }
+  .c-senior p, .c-senior li { color: #2f5a35; }
+  .care-card ul { list-style: none; padding: 0; margin: 18px 0 0; max-width: 360px; }
+  .care-card li { padding: 6px 0 6px 28px; position: relative; font-size: 16px; }
+  .care-card li::before { content: "✓"; position: absolute; left: 4px; font-weight: 700; }
+  .only-note { margin-top: 26px; text-align: center; color: var(--soft); font-size: 16px; }
+  .care-card { border-radius: 32px; padding: 36px; min-height: 400px; position: relative; overflow: hidden; }
+  .care-card h3 { font-size: 30px; }
+  .care-card p { margin-top: 12px; font-size: 17px; max-width: 400px; }
+  .c-women { background: linear-gradient(160deg, #fdeaf0, #f9d6e1); }
+  .c-women p { color: #6b3b4c; }
+  .c-family { background: linear-gradient(160deg, #e5f0fd, #cfe2f8); }
+  .c-family p { color: #2d4a6b; }
+  .care-card svg { position: absolute; right: 18px; bottom: 18px; width: 36%; max-width: 190px; }
+  .c-women p, .c-family p { max-width: 62%; }
+  .care-card .tag { display: inline-block; margin-top: 18px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.75); font-size: 15px; font-weight: 600; }
+
+  /* extras */
+  .extras { background: #fff; }
+  .ex-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 46px; }
+  .ex-grid div { border-radius: 24px; padding: 24px; background: var(--cream); }
+  .ex-grid span { font-size: 30px; }
+  .ex-grid h3 { font-family: Inter, sans-serif; font-weight: 700; font-size: 17px; margin-top: 10px; }
+  .ex-grid p { color: var(--soft); font-size: 15px; margin-top: 4px; line-height: 1.5; }
+
+  /* tour */
+  .tour { background: linear-gradient(180deg, var(--mist), #fff); }
+  .rail { display: flex; gap: 28px; overflow-x: auto; padding: 44px 4px 20px; scroll-snap-type: x mandatory; }
+  .rail figure { margin: 0; flex: 0 0 auto; width: 250px; scroll-snap-align: start; }
+  .rail .phone { width: 250px; border-radius: 40px; padding: 9px; }
+  .rail .phone img { border-radius: 32px; }
+  .rail figcaption { margin-top: 18px; }
+  .rail figcaption b { display: block; font-size: 18px; }
+  .rail figcaption span { color: var(--soft); font-size: 15px; }
+
+  /* power */
+  .power { background: var(--sand); }
+  .power-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px; }
+  .power-grid .card { padding: 30px; }
+  .power-grid b { display: block; font-family: Fraunces, serif; font-size: 50px; font-weight: 400; color: var(--ocean); line-height: 1; }
+  .power-grid p { margin-top: 12px; color: var(--soft); }
+
+  /* sizes + colors */
+  .fit { background: var(--cream); }
+  .size-row { display: flex; justify-content: center; align-items: flex-end; gap: clamp(6px, 1.6vw, 22px); flex-wrap: wrap; margin-top: 46px; }
+  .size-row div { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 14px; color: var(--soft); }
+  .size-row i { display: block; border-radius: 50%; border: 5px solid #cdd4db; box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.12); background: #fff; }
+  .size-row b { color: var(--ink); font-size: 16px; }
+  .color-row { display: flex; justify-content: center; gap: 30px; margin-top: 60px; flex-wrap: wrap; }
+  .color-row figure { margin: 0; width: 180px; text-align: center; font-weight: 600; }
+  .color-row svg { width: 160px; margin: 0 auto 8px; }
+
+  /* app download */
+  .get { background: var(--night); color: #fff; }
+  .get .wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+  .get .lead { color: rgba(255, 255, 255, 0.75); }
+  .stores { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .store { display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 14px; background: #fff; color: var(--ink); text-decoration: none; font-size: 13px; line-height: 1.2; }
+  .store b { display: block; font-size: 17px; }
+  .store span.ic { font-size: 26px; }
+  .qr-card { background: #fff; border-radius: 30px; padding: 26px; text-align: center; color: var(--ink); max-width: 300px; margin: 0 auto; }
+  .qr-card #qr { width: 220px; height: 220px; margin: 0 auto; }
+  .qr-card #qr img, .qr-card #qr canvas { width: 220px !important; height: 220px !important; }
+  .qr-card p { margin-top: 14px; font-weight: 600; }
+  .qr-card small { color: var(--soft); }
+
+  /* buy */
+  .buy { background: linear-gradient(180deg, var(--cream), var(--mist)); }
+  .buy .box { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .stage { aspect-ratio: 1; border-radius: 40px; background: radial-gradient(circle at 50% 42%, #fff 0%, #fbeee1 60%, #f3dfcb 100%); display: grid; place-items: center; }
+  .stage svg { width: 72%; }
+  .price { font-family: Fraunces, serif; font-size: 58px; margin: 12px 0 4px; }
+  .price s { font-size: 26px; color: var(--faint); margin-left: 10px; }
+  .badge { display: inline-block; font: 600 13px Inter; background: var(--lime); color: #1d2a0a; padding: 5px 12px; border-radius: 999px; vertical-align: middle; margin-left: 10px; }
+  .opt { margin-top: 24px; font-weight: 600; }
+  .opt span { color: var(--soft); font-weight: 500; }
+  .colors { display: flex; gap: 12px; margin-top: 12px; }
+  .colors button { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1.5px var(--line); cursor: pointer; }
+  .colors button.on { box-shadow: 0 0 0 3px var(--ocean); }
+  .size-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .size-btns button { min-width: 50px; min-height: 46px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; font: 600 16px Inter; cursor: pointer; color: var(--ink); }
+  .size-btns button.on { background: var(--night); color: #fff; border-color: var(--night); }
+  .incl { list-style: none; padding: 0; margin: 22px 0 28px; }
+  .incl li { padding: 9px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; font-size: 16px; }
+  .incl li span:last-child { color: var(--soft); text-align: right; }
+
+  /* faq */
+  .faq { background: #fff; }
+  .faq details { border-bottom: 1px solid var(--line); padding: 22px 4px; }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 19px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::after { content: "+"; color: var(--coral); font-size: 26px; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { color: var(--soft); margin-top: 12px; }
+  .faq table { margin-top: 14px; border-collapse: collapse; font-size: 16px; }
+  .faq td, .faq th { text-align: left; padding: 5px 28px 5px 0; border-bottom: 1px solid var(--line); }
+
+
+  /* ===== shop at the top ===== */
+  .shop-top { background: linear-gradient(180deg, #fde3cc 0%, #fbeedf 45%, #e9f2fb 100%); padding: 110px 0 60px; }
+  .shop-top .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
+  .gallery .stage { position: relative; aspect-ratio: 1; border-radius: 36px; background: radial-gradient(circle at 50% 45%, #ffffff 0%, #fdf3e8 55%, #f5e2cf 100%); display: grid; place-items: center; overflow: hidden; }
+  .gallery .stage::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: 13%; height: 26px; border-radius: 50%; background: rgba(90, 60, 30, 0.22); filter: blur(14px); }
+  .gallery .stage img { width: 62%; position: relative; z-index: 1; transition: opacity 0.25s; animation: float 6s ease-in-out infinite; }
+  .gallery .stage img.charger { width: 46%; }
+  .thumbs { display: flex; gap: 12px; margin-top: 14px; }
+  .thumbs button { flex: 1; aspect-ratio: 1; border-radius: 20px; border: 2px solid transparent; background: #fff; cursor: pointer; padding: 10px; }
+  .thumbs button.on { border-color: var(--ocean); }
+  .thumbs img { width: 100%; height: 100%; object-fit: contain; }
+  .buybox h1 { font-size: clamp(40px, 5vw, 62px); font-weight: 400; margin-top: 4px; }
+  .buybox .tag-line { color: var(--soft); font-size: 18px; margin-top: 12px; }
+  .price { font-family: Fraunces, serif; font-size: 52px; margin: 18px 0 2px; line-height: 1; }
+  .price s { font-size: 24px; color: var(--faint); margin-left: 10px; }
+  .badge { display: inline-block; font: 600 13px Inter; background: var(--lime); color: #1d2a0a; padding: 5px 12px; border-radius: 999px; vertical-align: middle; margin-left: 10px; }
+  .opt { margin-top: 22px; font-weight: 600; font-size: 16px; }
+  .opt span { color: var(--soft); font-weight: 500; }
+  .colors { display: flex; gap: 12px; margin-top: 10px; }
+  .colors button { width: 46px; height: 46px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1.5px var(--line); cursor: pointer; }
+  .colors button.on { box-shadow: 0 0 0 3px var(--ocean); }
+  .size-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .size-btns button { min-width: 48px; min-height: 46px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; font: 600 16px Inter; cursor: pointer; color: var(--ink); }
+  .size-btns button.on { background: var(--night); color: #fff; border-color: var(--night); }
+  .kit-link { display: inline-block; margin-top: 10px; font-size: 15px; color: var(--ocean); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; font-family: inherit; }
+  .buy-row { display: flex; gap: 12px; margin-top: 26px; align-items: stretch; }
+  .qty { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 999px; background: #fff; }
+  .qty button { width: 46px; height: 56px; border: 0; background: none; font-size: 22px; cursor: pointer; color: var(--ink); }
+  .qty span { min-width: 26px; text-align: center; font-weight: 700; }
+  .buy-row .btn { flex: 1; }
+  .perks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; margin-top: 24px; font-size: 15px; color: var(--soft); }
+  .perks div::before { content: "✓"; color: var(--green); font-weight: 700; margin-right: 8px; }
+  .icons-band { background: #e9f2fb; padding: 10px 0 70px; }
+  .icons-band .strip { margin-top: 0; }
+
+  /* cart button + drawer */
+  .lang { min-height: 42px; border-radius: 999px; border: 1.5px solid var(--line); background: #fff; padding: 0 12px; font: 600 14px Inter; color: var(--ink); cursor: pointer; }
+  .cart-btn { position: relative; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; display: grid; place-items: center; cursor: pointer; font-size: 20px; }
+  .cart-btn b { position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--coral); color: #fff; font: 700 12px/22px Inter; display: none; }
+  .cart-btn b.show { display: block; }
+  .shade { position: fixed; inset: 0; background: rgba(19, 40, 74, 0.35); opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 40; }
+  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: var(--cream); z-index: 41; transform: translateX(100%); transition: transform 0.3s; display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(19, 40, 74, 0.18); }
+  body.cart-open .shade { opacity: 1; pointer-events: auto; }
+  body.cart-open .drawer { transform: none; }
+  .drawer header { display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; border-bottom: 1px solid var(--line); }
+  .drawer header h3 { font-size: 26px; }
+  .drawer .x { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; font-size: 20px; cursor: pointer; }
+  .items { flex: 1; overflow-y: auto; padding: 10px 24px; }
+  .item { display: grid; grid-template-columns: 76px 1fr auto; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .item img { width: 76px; height: 76px; object-fit: contain; background: #fff; border-radius: 16px; padding: 6px; }
+  .item b { display: block; font-size: 16px; }
+  .item small { color: var(--soft); font-size: 14px; }
+  .item .mini { display: inline-flex; align-items: center; gap: 10px; margin-top: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 6px; background: #fff; }
+  .item .mini button { border: 0; background: none; font-size: 18px; width: 26px; cursor: pointer; }
+  .item .rm { border: 0; background: none; color: var(--faint); font-size: 13px; cursor: pointer; text-decoration: underline; display: block; margin-top: 6px; }
+  .item .amt { font-weight: 700; }
+  .empty { text-align: center; color: var(--soft); padding: 60px 10px; }
+  .sumbox { padding: 18px 24px 26px; border-top: 1px solid var(--line); background: #fff; }
+  .ship { display: grid; gap: 8px; margin-bottom: 14px; }
+  .ship-to { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: 600; font-size: 15px; }
+  .ship-to select { min-height: 40px; border-radius: 12px; border: 1.5px solid var(--line); background: #fff; padding: 0 10px; font: 500 15px Inter; color: var(--ink); }
+  .ship label { display: flex; justify-content: space-between; align-items: center; gap: 10px; border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 14px; cursor: pointer; font-size: 15px; }
+  .ship label:has(input:checked) { border-color: var(--ocean); background: var(--mist); }
+  .ship input { margin-right: 8px; accent-color: var(--ocean); }
+  .line { display: flex; justify-content: space-between; font-size: 16px; padding: 3px 0; color: var(--soft); }
+  .line.total { color: var(--ink); font-weight: 700; font-size: 20px; padding-top: 10px; margin-top: 6px; border-top: 1px solid var(--line); }
+  .checkout { width: 100%; margin-top: 16px; }
+  .secure { text-align: center; font-size: 13px; color: var(--faint); margin-top: 10px; }
+  .toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); background: var(--night); color: #fff; padding: 12px 20px; border-radius: 999px; font-size: 15px; opacity: 0; transition: all 0.25s; z-index: 50; }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .prod { width: 82%; margin: 0 auto; filter: drop-shadow(0 30px 30px rgba(60, 40, 20, 0.25)); }
+  .color-row img { width: 150px; height: 150px; object-fit: contain; margin: 0 auto 10px; }
+  .power-top { display: grid; grid-template-columns: 1fr 0.6fr; gap: 40px; align-items: center; }
+  .power-top img { width: 70%; margin: 0 auto; filter: drop-shadow(0 30px 30px rgba(60, 40, 20, 0.2)); }
+  @media (max-width: 920px) {
+    .shop-top .wrap, .power-top { grid-template-columns: 1fr; }
+    .shop-top { padding-top: 92px; }
+  }
+  @media (max-width: 560px) {
+    .perks { grid-template-columns: 1fr; }
+    .buy-row { flex-wrap: wrap; }
+  }
+
+
+  /* ===== what makes us different ===== */
+  .diff { background: #fff; }
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; margin-top: 50px; }
+  .compare { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 16px; }
+  .compare th { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--soft); padding: 0 12px 14px; text-align: center; }
+  .compare th:first-child { text-align: left; padding-left: 0; }
+  .compare th.us { color: var(--ocean); }
+  .compare td { padding: 13px 12px; border-top: 1px solid var(--line); text-align: center; }
+  .compare td:first-child { text-align: left; padding-left: 0; font-weight: 500; }
+  .compare td.us { background: var(--mist); font-weight: 700; color: var(--green); font-size: 20px; }
+  .compare tr:first-child td.us { border-radius: 16px 16px 0 0; }
+  .compare tr:last-child td.us { border-radius: 0 0 16px 16px; }
+  .compare td.them { color: var(--faint); font-size: 14px; }
+  .unique { display: grid; gap: 14px; }
+  .unique > div { display: flex; gap: 16px; align-items: flex-start; padding: 20px; border-radius: 22px; background: var(--cream); }
+  .unique span { font-size: 30px; line-height: 1; }
+  .unique b { display: block; font-size: 18px; }
+  .unique p { color: var(--soft); font-size: 15.5px; margin-top: 4px; line-height: 1.5; }
+  @media (max-width: 920px) { .diff-grid { grid-template-columns: 1fr; } }
+
+  footer { background: var(--night); color: rgba(255, 255, 255, 0.6); padding: 48px 0 60px; font-size: 15px; }
+  footer .row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  footer b { color: #fff; }
+
+  @media (max-width: 920px) {
+    section { padding: 80px 0; }
+    .links a:not(.btn) { display: none; }
+    .links { gap: 10px; }
+    .hero .wrap, .slim .wrap, .usual .wrap, .fitness .wrap, .buy .box, .care-grid, .get .wrap { grid-template-columns: 1fr; }
+    .hero { padding-top: 120px; }
+    .hero-ring { max-width: 440px; margin: 0 auto; width: 100%; }
+    .strip { grid-template-columns: repeat(3, 1fr); }
+    .timeline { grid-template-columns: 1fr 1fr; }
+    .timeline::before { display: none; }
+    .tiles, .power-grid, .ex-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    body { font-size: 17px; }
+    .timeline, .tiles, .power-grid, .ex-grid { grid-template-columns: 1fr; }
+    .phone { width: 250px; }
+    .care-card { min-height: 440px; padding: 28px; }
+    .care-card svg { width: 60%; }
+    .bubble { font-size: 12px; padding: 8px 10px; }
+    .bubble b { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="img/icon.png" alt="">ELVÉRA</a>
+    <div class="links">
+      <a href="#buy">Shop</a>
+      <a href="#different">Why ELVÉRA</a>
+      <a href="#day">A day with it</a>
+      <a href="#signals">Features</a>
+      <a href="#tour">The app</a>
+      <a href="#faq">Questions</a>
+      <select id="lang" aria-label="Language" class="lang"><option value="en">🌐 English</option><option value="zh-TW">繁體中文</option><option value="zh-CN">简体中文</option><option value="es">Español</option><option value="ja">日本語</option></select>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">🛒<b id="cartCount">0</b></button>
+    </div>
+  </div>
+</nav>
+
+<!-- SHOP (top) -->
+<header class="shop-top" id="buy">
+  <div class="wrap">
+    <div class="gallery">
+      <div class="stage"><img id="mainImg" src="img/ring-silver.png" alt="ELVÉRA ONE in silver"></div>
+      <div class="thumbs">
+        <button class="on" data-img="img/ring-silver.png" data-color="Silver" aria-label="Silver"><img src="img/ring-silver.png" alt=""></button>
+        <button data-img="img/ring-black.png" data-color="Black" aria-label="Black"><img src="img/ring-black.png" alt=""></button>
+        <button data-img="img/ring-gold.png" data-color="Gold" aria-label="Gold"><img src="img/ring-gold.png" alt=""></button>
+        <button data-img="img/charger.png" aria-label="Charging case"><img src="img/charger.png" alt=""></button>
+      </div>
+    </div>
+    <div class="buybox">
+      <div class="eyebrow">ELVÉRA ONE · Smart health ring</div>
+      <h1>Care that fits <em>on your finger.</em></h1>
+      <p class="tag-line">Heart, sleep and energy, looked after day and night, and explained in plain, kind words. From cycles and pregnancy to menopause and senior care, for every stage of life.</p>
+      <div class="price"><span id="priceNow">$199</span><s id="priceWas">$219</s><span class="badge">Launch price</span></div>
+      <div class="opt">Color: <span id="cname">Silver</span></div>
+      <div class="colors" role="radiogroup" aria-label="Color">
+        <button class="on" data-color="Silver" data-img="img/ring-silver.png" style="background:linear-gradient(135deg,#f4f6f8,#a9b2bb)" aria-label="Silver"></button>
+        <button data-color="Black" data-img="img/ring-black.png" style="background:linear-gradient(135deg,#4a4f55,#121417)" aria-label="Black"></button>
+        <button data-color="Gold" data-img="img/ring-gold.png" style="background:linear-gradient(135deg,#f7dfa6,#c49a46)" aria-label="Gold"></button>
+      </div>
+      <div class="opt">Size: <span id="mm">8 · 18.2 mm inside</span></div>
+      <div class="size-btns" id="sizeBtns"></div>
+      <button class="kit-link" id="kitBtn">Not sure of your size? See the size guide</button>
+      <div class="buy-row">
+        <div class="qty"><button id="qMinus" aria-label="Fewer">−</button><span id="qty">1</span><button id="qPlus" aria-label="More">+</button></div>
+        <button class="btn btn-main" id="addBtn">Add to cart</button>
+      </div>
+      <div class="perks"><div>No monthly fee</div><div>Ships worldwide with DHL</div><div>30-day returns</div><div>1-year warranty</div><div>iPhone &amp; Android</div><div>Ring + charging case</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="icons-band">
+  <div class="wrap">
+    <div class="strip">
+      <div><span>❤️</span>Heart rate 24/7</div>
+      <div><span>💧</span>Blood oxygen</div>
+      <div><span>🌙</span>Sleep</div>
+      <div><span>🍃</span>Stress &amp; HRV</div>
+      <div><span>🫁</span>Cardio fitness</div>
+      <div><span>🌸</span>Women's health</div>
+      <div><span>🌿</span>Menopause care</div>
+      <div><span>👵</span>Senior care</div>
+      <div><span>👨‍👩‍👧</span>Family sharing</div>
+      <div><span>💊</span>Medicine reminders</div>
+      <div><span>📄</span>Doctor report</div>
+      <div><span>✨</span>AI coach</div>
+                </div>
+  </div>
+</div>
+
+<!-- WHAT MAKES US DIFFERENT -->
+<section class="diff" id="different">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Why ELVÉRA is different</div>
+      <h2>Not just another ring. <em>A ring that cares.</em></h2>
+      <p class="lead">Other rings are built for athletes and data lovers. ELVÉRA is built for real families, from busy moms to grandparents.</p>
+    </div>
+    <div class="diff-grid">
+      <table class="compare">
+        <tr><th></th><th class="us">ELVÉRA</th><th>Most smart rings</th></tr>
+        <tr><td>Works with iPhone and Android</td><td class="us">✓</td><td class="them">Not always</td></tr><tr><td>Big text, plain words for every age</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Alerts based on your own usual</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Family sharing with care alerts</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Menopause care, for women and men</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Senior care and fall-prevention tips</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Medicine reminders</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>One-tap doctor report (PDF)</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>English, 繁中, 简中, Español, 日本語</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>No monthly subscription</td><td class="us">✓</td><td class="them">Not always</td></tr>
+      </table>
+      <div class="unique">
+        <div><span>🌿</span><div><b>Menopause care, for her and for him</b><p>Sleep, hot flashes, heart and mood, with daily guidance through midlife. A first for smart rings.</p></div></div>
+        <div><span>👵</span><div><b>Senior care that keeps parents safe</b><p>Age-right step goals, fall-prevention tips, medicine alarms and an alert when heart rate looks unusual.</p></div></div>
+        <div><span>💛</span><div><b>Family that looks out for each other</b><p>See how loved ones are doing at a glance, and get a gentle note when someone might need a call.</p></div></div>
+        <div><span>📄</span><div><b>Ready for the doctor</b><p>One tap turns weeks of readings into a clear PDF to print or send before your visit.</p></div></div>
+        <div><span>🔠</span><div><b>Easy for every age</b><p>Big text, simple words and five languages. If Grandma can read it, everyone can.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A DAY WITH ELVÉRA -->
+<section class="day" id="day">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">A day with ELVÉRA</div>
+      <h2>It fits into your life, <em>not the other way around.</em></h2>
+      <p class="lead">No buttons to press, nothing to remember. Just wear it, and glance at your phone when you like.</p>
+    </div>
+    <div class="timeline">
+      <div class="moment">
+        <div class="time" style="background:#fde3cc">☀️</div>
+        <div class="card"><small>7:00 AM</small><h3>Good morning</h3><p>See how you slept, and one word for how your body feels today.</p><div class="say">"You slept well. A steady day ahead."</div></div>
+      </div>
+      <div class="moment">
+        <div class="time" style="background:#e3f3df">🚶</div>
+        <div class="card"><small>10:00 AM</small><h3>A walk outside</h3><p>Colors show how hard you're working, and your cardio fitness updates.</p><div class="say">"Fat-burn zone. Nice pace!"</div></div>
+      </div>
+      <div class="moment">
+        <div class="time" style="background:#fff1d6">💊</div>
+        <div class="card"><small>2:00 PM</small><h3>A gentle nudge</h3><p>Your medicine reminder rings like an alarm, on your phone and your watch.</p><div class="say">"Time for your afternoon pills."</div></div>
+      </div>
+      <div class="moment">
+        <div class="time" style="background:#e5f0fd">🏡</div>
+        <div class="card"><small>9:00 PM</small><h3>Family, close by</h3><p>Your daughter sees you had a good day, without a single phone call.</p><div class="say">"Mom's doing great today 💛"</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIM -->
+<section class="slim">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Thin as a whisper</div>
+      <div class="big-num">2.2<small> mm</small></div>
+      <h2 style="margin-top:18px">So light, you'll forget <em>it's there.</em></h2>
+      <p class="lead">A titanium ring just 2.2 mm thin, smooth and rounded inside. Wear it to bed, to work, in the shower. It simply stays with you.</p>
+      <div class="facts"><div><b>3–5 g</b>light as a feather</div><div><b>Titanium</b>strong &amp; scratch-resistant</div><div><b>8 mm</b>wide, soft edges</div></div>
+    </div>
+    <img class="prod" src="img/ring-gold.png" alt="ELVÉRA ONE in gold">
+  </div>
+</section>
+
+<!-- YOUR USUAL -->
+<section class="usual">
+  <div class="wrap">
+    <div class="phone"><img src="img/app-flower.jpg" alt="ELVÉRA compares today's numbers with your usual"></div>
+    <div>
+      <div class="eyebrow">Made for real people</div>
+      <h2>Compared with <em>your</em> usual, not a stranger's.</h2>
+      <p class="lead">ELVÉRA learns what's normal for you. Each day you see what's different, in big, clear text and simple words like Steady, Slow or Strong. No charts to decode.</p>
+      <div class="chips"><span class="chip">👵 Easy for every age</span><span class="chip">🔔 A gentle buzz if something's off</span><span class="chip">🌐 English · 繁中 · 简中 · Español · 日本語</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX SIGNALS -->
+<section class="signals" id="signals">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Always on, all day</div>
+      <h2>Six things your body <em>is telling you.</em></h2>
+      <p class="lead">Measured automatically every hour and through the night, so you never have to remember.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile t1"><div><h3><span>❤️</span>Heart rate</h3><p>A gentle buzz if it runs far above your usual while you rest.</p></div><div class="val">63<small>bpm</small></div><span class="word">Steady</span></div>
+      <div class="tile t2"><div><h3><span>💧</span>Blood oxygen</h3><p>Checked while you sleep, with a sleep-breathing check.</p></div><div class="val">97<small>%</small></div><span class="word">Normal</span></div>
+      <div class="tile t3"><div><h3><span>🍃</span>Stress &amp; HRV</h3><p>Know when your body is tired and could use a slower day.</p></div><div class="val">44<small>ms</small></div><span class="word">Relaxed</span></div>
+      <div class="tile t4"><div><h3><span>🌙</span>Sleep</h3><p>Deep, light and dream sleep, in words that make sense.</p></div><div class="val">7h 20<small>min</small></div><span class="word">Good</span></div>
+      <div class="tile t5"><div><h3><span>🌡️</span>Temperature</h3><p>Small nightly changes compared with your own baseline.</p></div><div class="val">−0.2<small>°F</small></div><span class="word">Usual</span></div>
+      <div class="tile t6"><div><h3><span>👟</span>Steps</h3><p>Steps, distance and calories, with a goal that fits your age.</p></div><div class="val">6,240<small>steps</small></div><span class="word">On track</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FITNESS -->
+<section class="fitness">
+  <div class="wrap">
+    <div class="card gauge-card">
+      <svg viewBox="0 0 300 190" aria-hidden="true">
+        <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ef7d5e"/><stop offset=".35" stop-color="#f3c548"/><stop offset=".65" stop-color="#9cd04a"/><stop offset="1" stop-color="#2b9e6f"/></linearGradient></defs>
+        <path d="M30 170 A120 120 0 0 1 270 170" fill="none" stroke="#efe7dc" stroke-width="22" stroke-linecap="round"/>
+        <path d="M30 170 A120 120 0 0 1 270 170" fill="none" stroke="url(#g1)" stroke-width="22" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="70"/>
+        <circle cx="238" cy="92" r="13" fill="#fff" stroke="#2b9e6f" stroke-width="5"/>
+        <text x="150" y="138" text-anchor="middle" font-family="Fraunces, serif" font-size="58" fill="#1d2733">42</text>
+        <text x="150" y="166" text-anchor="middle" font-family="Inter" font-size="14" fill="#5e6873">cardio fitness · Excellent</text>
+      </svg>
+      <p style="margin-top:18px;font-family:Fraunces,serif;font-size:22px">Your fitness age: <b style="color:var(--green)">38</b></p>
+      <p style="color:var(--soft);font-size:15px">for a 52-year-old woman</p>
+    </div>
+    <div>
+      <div class="eyebrow">Cardio fitness</div>
+      <h2>Know your fitness age. <em>Watch it get younger.</em></h2>
+      <p class="lead">Just go for a walk. After six minutes, ELVÉRA works out your VO2 Max, a well-known measure of heart and lung fitness, and shows how you compare with people your age.</p>
+      <div class="zones"><div><i style="background:#8fb3d9"></i>Warm-up</div><div><i style="background:#4fb37a"></i>Fat burn</div><div><i style="background:#e8c547"></i>Aerobic</div><div><i style="background:#f08a3c"></i>Hard</div><div><i style="background:#e4572e"></i>Max</div></div>
+      <p style="margin-top:12px;color:var(--soft);font-size:15px">Five heart-rate zones light up live as you move.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CARE -->
+<section class="care">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Care for every stage of life</div>
+      <h2>From your first cycle <em>to your golden years.</em></h2>
+      <p class="lead">Most rings stop at fitness and periods. ELVÉRA keeps caring as life changes, with guidance for menopause and for older adults that you won't find on other rings.</p>
+    </div>
+    <div class="care-grid">
+      <div class="care-card c-women">
+        <h3>Women's health</h3>
+        <p>Nightly temperature helps you follow your cycle and fertile days. Expecting? See your due date and how big your baby is, week by week.</p>
+        <span class="tag">🍅 Week 24: about a big tomato</span>
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="16"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="#e98cb0" stroke-width="16" stroke-dasharray="78 400" stroke-linecap="round" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="#9fc7e8" stroke-width="16" stroke-dasharray="68 410" stroke-dashoffset="-150" stroke-linecap="round" transform="rotate(-90 100 100)"/>
+          <text x="100" y="98" text-anchor="middle" font-family="Fraunces, serif" font-size="32" fill="#6b3b4c">Day 12</text>
+          <text x="100" y="122" text-anchor="middle" font-family="Inter" font-size="13" fill="#6b3b4c">fertile window</text>
+        </svg>
+      </div>
+      <div class="care-card c-meno">
+        <span class="only">Only at ELVÉRA</span>
+        <h3>Menopause care</h3>
+        <p>For women, and for men too. Gentle, daily guidance through the changes of midlife.</p>
+        <ul>
+          <li>Sleep and night-time waking, explained</li>
+          <li>Hot flashes seen in your temperature</li>
+          <li>Heart rate and stress swings, watched for you</li>
+          <li>Mood notes and tips for bones and muscle</li>
+        </ul>
+      </div>
+      <div class="care-card c-senior">
+        <span class="only">Only at ELVÉRA</span>
+        <h3>Senior care</h3>
+        <p>Made for parents and grandparents, with big text and a step goal that suits their age.</p>
+        <ul>
+          <li>A safe daily step goal, by age</li>
+          <li>Tips to prevent falls and stay hydrated</li>
+          <li>An alert if heart rate is unusually slow or fast</li>
+          <li>Medicine reminders that ring like an alarm</li>
+        </ul>
+      </div>
+      <div class="care-card c-family">
+        <h3>Family sharing</h3>
+        <p>Live far from Mom? See that she slept well and took her walk, and get a gentle note if she might need a call.</p>
+        <span class="tag">💛 You choose what to share</span>
+        <svg viewBox="0 0 220 200" aria-hidden="true">
+          <path d="M110 60 L45 140 M110 60 L175 140 M45 140 H175" stroke="#7fa8d9" stroke-width="3" stroke-dasharray="6 7" fill="none"/>
+          <circle cx="110" cy="56" r="34" fill="#fff"/><text x="110" y="68" text-anchor="middle" font-size="34">👵</text>
+          <circle cx="45" cy="142" r="30" fill="#fff"/><text x="45" y="153" text-anchor="middle" font-size="30">👩</text>
+          <circle cx="175" cy="142" r="30" fill="#fff"/><text x="175" y="153" text-anchor="middle" font-size="30">🧑</text>
+          <rect x="128" y="16" width="80" height="26" rx="13" fill="#2b7a5f"/><text x="168" y="34" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#fff">Slept well ✓</text>
+        </svg>
+      </div>
+    </div>
+    <p class="only-note">Women's health · Menopause · Senior care · Family, all in one ring, with no monthly fee.</p>
+  </div>
+</section>
+
+<!-- EXTRAS -->
+<section class="extras">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Thoughtful extras</div>
+      <h2>Little things that <em>make a big difference.</em></h2>
+    </div>
+    <div class="ex-grid">
+      <div><span>💊</span><h3>Medicine reminders</h3><p>Rings like an alarm, so no dose is missed.</p></div>
+      <div><span>📄</span><h3>Doctor report</h3><p>One tap makes a clear PDF for your next visit.</p></div>
+      <div><span>✨</span><h3>AI coach</h3><p>Ask about your numbers, get kind, practical tips.</p></div>
+      <div><span>⌚</span><h3>Watch alerts</h3><p>Reminders buzz on your smartwatch, too.</p></div>
+      <div><span>🔍</span><h3>Find my ring</h3><p>See if it's nearby and where it last connected.</p></div>
+      <div><span>🔠</span><h3>Larger text</h3><p>One tap makes every word bigger.</p></div>
+      <div><span>🍎</span><h3>Apple Health</h3><p>Send your ring data to Apple Health.</p></div>
+      <div><span>🎁</span><h3>No subscription</h3><p>Every feature included, for good.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section class="tour" id="tour">
+  <div class="wrap">
+    <div class="eyebrow">A look inside the app</div>
+    <h2>Open it, and <em>you'll know how you are.</em></h2>
+    <div class="rail">
+      <figure><div class="phone"><img src="img/app-today.jpg" alt="Today screen"></div><figcaption><b>Today</b><span>Recovery, activity and sleep at a glance.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-flower.jpg" alt="Compared with your usual"></div><figcaption><b>Your usual</b><span>Cardio fitness in the middle, the rest like petals.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-workout.jpg" alt="Walk with heart-rate zones"></div><figcaption><b>Walks</b><span>Live zones and cardio fitness as you go.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-cardio.jpg" alt="Cardio fitness"></div><figcaption><b>Fitness age</b><span>How you compare, and how to improve.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-settings.jpg" alt="Getting started"></div><figcaption><b>Easy setup</b><span>A four-step checklist. No account needed.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- POWER -->
+<section class="power">
+  <div class="wrap">
+    <div class="power-top">
+      <div>
+        <div class="eyebrow">Built to keep going</div>
+        <h2>Charge once a week. <em>Wear it everywhere.</em></h2>
+        <p class="lead">Drop it in the magnetic charging case for about 30 minutes, and it's ready for another week.</p>
+      </div>
+      <img src="img/charger.png" alt="ELVÉRA charging case">
+    </div>
+    <div class="power-grid">
+      <div class="card"><b>7 days</b><p>On a single charge, with all-day tracking on.</p></div>
+      <div class="card"><b>~30 min</b><p>Fast charging in its magnetic charging case.</p></div>
+      <div class="card"><b>Water</b><p>Water resistant for hand-washing, showers and rain.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIZES + COLORS -->
+<section class="fit" id="sizes">
+  <div class="wrap center">
+    <div class="eyebrow">9 sizes · 3 colors</div>
+    <h2>A fit for every hand, <em>a color for every style.</em></h2>
+    <p class="lead">Not sure of your size? Measure the inside of a ring that fits you, then match it below.</p>
+    <div class="size-row" id="sizeRow"></div>
+    <div class="color-row">
+      <figure><img src="img/ring-silver.png" alt="">Silver</figure>
+      <figure><img src="img/ring-black.png" alt="">Black</figure>
+      <figure><img src="img/ring-gold.png" alt="">Gold</figure>
+    </div>
+  </div>
+</section>
+
+<!-- GET THE APP -->
+<section class="get" id="app">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:var(--lime)">Try it first, free</div>
+      <h2>Get the app today, <em style="color:var(--sky)">even before your ring.</em></h2>
+      <p class="lead">Download ELVÉRA and turn on Demo mode to explore every screen. When your ring arrives, you're already at home.</p>
+      <div class="stores">
+        <a class="store" href="#"><span class="ic"></span><span>Download on the<b>App Store</b></span></a>
+        <a class="store" href="#"><span class="ic">▶</span><span>Get it on<b>Google Play</b></span></a>
+      </div>
+    </div>
+    <div class="qr-card">
+      <div id="qr"></div>
+      <p>Scan to get the app</p>
+      <small>Point your phone's camera here</small>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap" style="max-width:820px">
+    <div class="eyebrow">Questions</div>
+    <h2>Good to know</h2>
+    <details><summary>Is there a monthly subscription?</summary><p>No. Buy the ring once and every feature in the app is included.</p></details>
+    <details><summary>Can I try the app before buying?</summary><p>Yes. Download ELVÉRA and turn on Demo mode to explore every screen with sample data.</p></details>
+    <details><summary>Is it easy for my parents to use?</summary><p>That's who we designed it for. Big text, simple words, and family members can see how each other are doing.</p></details>
+    <details><summary>How do I choose a size?</summary><p>We suggest your index or middle finger. The right size feels snug without spinning. Measure the inside of a ring that fits you and match its diameter:</p><table id="sizeTable"><tr><th>Size</th><th>Inside diameter</th></tr></table></details>
+    <details><summary>Where is my data stored?</summary><p>Your health data stays on your own phone unless you choose to share it with family. You can turn sharing off at any time.</p></details>
+    <details><summary>Is ELVÉRA a medical device?</summary><p>No. ELVÉRA is for everyday wellness and is not intended to diagnose, treat or prevent any disease. Always talk with your doctor about your health.</p></details>
+  </div>
+</section>
+
+
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <header><h3>Your cart</h3><button class="x" id="closeCart" aria-label="Close">✕</button></header>
+  <div class="items" id="items"></div>
+  <div class="sumbox" id="sumbox">
+    <div class="ship-to"><span>Ship to</span><select id="region" aria-label="Ship to"><option value="US">United States</option><option value="CA">Canada</option><option value="INTL">Other countries</option></select></div>
+    <div class="ship" id="shipOpts"></div>
+    <div class="line"><span>Subtotal</span><span id="sub">$0.00</span></div>
+    <div class="line"><span>Shipping</span><span id="shipAmt">Free</span></div>
+    <div class="line"><span>Sales tax</span><span>Calculated at checkout</span></div>
+    <div class="line total"><span>Total</span><span id="total">$0.00</span></div>
+    <button class="btn btn-main checkout" id="checkoutBtn">Checkout</button>
+    <div class="secure">🔒 Secure checkout · Apple Pay, cards and more</div>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap row">
+    <div><b>ELVÉRA</b> · Care that fits on your finger.</div>
+    <div>ELVÉRA is a wellness product, not a medical device.</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/t2cn.js"></script>
+<script src="i18n.js"></script>
+<script>
+  // ===== settings you can change =====
+  var PRICE = 199, WAS = 219;            // launch price and regular price (USD)
+  // shipping (USD) by where the parcel goes; change freely
+  var SHIP = {
+    US: [['Standard · 5–7 business days', 7.95], ['Expedited · 2–3 business days', 14.95], ['Overnight · 1 business day', 29.95]],
+    CA: [['DHL Express · 3–5 business days', 24.95]],
+    INTL: [['DHL Express · 4–8 business days', 34.95]],
+  };
+  var APP_LINK = 'https://elvera.app/get';      // QR code + store buttons (replace when the app is live)
+  var CHECKOUT_URL = '';                 // Shopify / Stripe checkout link (empty = not open yet)
+
+  // ===== language =====
+  var LANG = 'en', toCN = null;
+  function T(text) {
+    if (LANG === 'en') return text;
+    var tw = (window.ELV_I18N['zh-TW'] || {})[text];
+    if (LANG === 'zh-CN') {
+      if (!tw) return text;
+      try { toCN = toCN || OpenCC.Converter({ from: 'tw', to: 'cn' }); return toCN(tw); } catch (e) { return tw; }
+    }
+    var d = window.ELV_I18N[LANG] || {};
+    return d[text] || text;
+  }
+  var TF = function (pattern, v) { return T(pattern).replace('{}', v); };
+
+  var SIZES = [[6, 16.5], [7, 17.4], [8, 18.2], [9, 19.0], [10, 19.9], [11, 20.7], [12, 21.5], [13, 22.1], [14, 23.1]];
+  var IMG = { Silver: 'img/ring-silver.png', Black: 'img/ring-black.png', Gold: 'img/ring-gold.png' };
+  var pick = { color: 'Silver', size: 8, qty: 1 };
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return '$' + n.toFixed(2); };
+  $('priceNow').textContent = '$' + PRICE; $('priceWas').textContent = '$' + WAS;
+
+  function show(src) {
+    var m = $('mainImg');
+    m.style.opacity = 0;
+    setTimeout(function () { m.src = src; m.classList.toggle('charger', src.indexOf('charger') >= 0); m.style.opacity = 1; }, 150);
+  }
+  function setColor(c) {
+    pick.color = c;
+    $('cname').textContent = T(c);
+    document.querySelectorAll('.colors button').forEach(function (b) { b.classList.toggle('on', b.dataset.color === c); });
+    document.querySelectorAll('.thumbs button').forEach(function (b) { b.classList.toggle('on', b.dataset.color === c); });
+    show(IMG[c]);
+  }
+  document.querySelectorAll('.colors button').forEach(function (b) { b.onclick = function () { setColor(b.dataset.color); }; });
+  document.querySelectorAll('.thumbs button').forEach(function (b) {
+    b.onclick = function () {
+      if (b.dataset.color) return setColor(b.dataset.color);
+      document.querySelectorAll('.thumbs button').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on'); show(b.dataset.img);
+    };
+  });
+
+  var btns = $('sizeBtns'), row = $('sizeRow'), table = $('sizeTable');
+  SIZES.forEach(function (s) {
+    btns.insertAdjacentHTML('beforeend', '<button data-s="' + s[0] + '" data-mm="' + s[1].toFixed(1) + '"' + (s[0] === 8 ? ' class="on"' : '') + '>' + s[0] + '</button>');
+    if (row) row.insertAdjacentHTML('beforeend', '<div><i style="width:' + Math.round(s[1] * 3.4) + 'px;height:' + Math.round(s[1] * 3.4) + 'px"></i><b>' + s[0] + '</b>' + s[1].toFixed(1) + ' mm</div>');
+    if (table) table.insertAdjacentHTML('beforeend', '<tr><td>' + s[0] + '</td><td>' + s[1].toFixed(1) + ' mm</td></tr>');
+  });
+  btns.querySelectorAll('button').forEach(function (b) {
+    b.onclick = function () {
+      btns.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on'); pick.size = +b.dataset.s;
+      $('mm').textContent = b.dataset.s + ' · ' + b.dataset.mm + ' mm ' + T('inside');
+    };
+  });
+  $('qMinus').onclick = function () { pick.qty = Math.max(1, pick.qty - 1); $('qty').textContent = pick.qty; };
+  $('qPlus').onclick = function () { pick.qty = Math.min(9, pick.qty + 1); $('qty').textContent = pick.qty; };
+
+  // ===== cart =====
+  var cart = [];
+  try { cart = JSON.parse(localStorage.getItem('elvera.cart') || '[]'); } catch (e) {}
+  function save() { try { localStorage.setItem('elvera.cart', JSON.stringify(cart)); } catch (e) {} }
+  function toast(t) { var el = $('toast'); el.textContent = t; el.classList.add('show'); setTimeout(function () { el.classList.remove('show'); }, 2200); }
+  function add(item) {
+    var same = cart.find(function (x) { return x.key === item.key; });
+    if (same) same.qty = Math.min(9, same.qty + item.qty); else cart.push(item);
+    save(); render(); openCart();
+  }
+  $('addBtn').onclick = function () {
+    add({ key: 'ring-' + pick.color + '-' + pick.size, name: 'ELVÉRA ONE', color: pick.color, size: pick.size, img: IMG[pick.color], price: PRICE, qty: pick.qty });
+  };
+  $('kitBtn').onclick = function () { $('sizes').scrollIntoView({ behavior: 'smooth' }); };
+  function render() {
+    var n = cart.reduce(function (a, x) { return a + (x.price ? x.qty : 0); }, 0);
+    var badge = $('cartCount'); badge.textContent = n || cart.length; badge.classList.toggle('show', cart.length > 0);
+    var list = $('items');
+    if (!cart.length) {
+      list.innerHTML = '<div class="empty">' + T('Your cart is empty.') + '<br>' + T('Pick a color and size to get started.') + '</div>';
+      $('sumbox').style.display = 'none';
+      return;
+    }
+    $('sumbox').style.display = '';
+    list.innerHTML = cart.map(function (x, i) {
+      var note = x.color ? T(x.color) + ' · ' + TF('Size {}', x.size) : T(x.note);
+      return '<div class="item"><img src="' + x.img + '" alt=""><div><b>' + T(x.name) + '</b><small>' + note + '</small>' +
+        (x.one ? '' : '<div class="mini"><button data-i="' + i + '" data-d="-1">−</button>' + x.qty + '<button data-i="' + i + '" data-d="1">+</button></div>') +
+        '<button class="rm" data-rm="' + i + '">' + T('Remove') + '</button></div><div class="amt">' + (x.price ? money(x.price * x.qty) : T('Free')) + '</div></div>';
+    }).join('');
+    list.querySelectorAll('[data-d]').forEach(function (b) {
+      b.onclick = function () { var it = cart[+b.dataset.i]; it.qty = Math.max(1, Math.min(9, it.qty + +b.dataset.d)); save(); render(); };
+    });
+    list.querySelectorAll('[data-rm]').forEach(function (b) { b.onclick = function () { cart.splice(+b.dataset.rm, 1); save(); render(); }; });
+    totals();
+  }
+  function totals() {
+    var sub = cart.reduce(function (a, x) { return a + x.price * x.qty; }, 0);
+    var checked = document.querySelector('input[name=ship]:checked');
+    var ship = checked ? +checked.value : 0;
+    $('sub').textContent = money(sub);
+    $('shipAmt').textContent = ship ? money(ship) : T('Free');
+    $('total').textContent = money(sub + ship);
+  }
+  function shipOptions() {
+    var opts = SHIP[$('region').value] || SHIP.US;
+    $('shipOpts').innerHTML = opts.map(function (o, i) {
+      return '<label><span><input type="radio" name="ship" value="' + o[1] + '"' + (i === 0 ? ' checked' : '') + '>' + T(o[0]) + '</span><b>' + money(o[1]) + '</b></label>';
+    }).join('');
+    document.querySelectorAll('input[name=ship]').forEach(function (r) { r.onchange = totals; });
+    totals();
+  }
+  $('region').onchange = shipOptions;
+  function openCart() { document.body.classList.add('cart-open'); }
+  function closeCart() { document.body.classList.remove('cart-open'); }
+  $('cartBtn').onclick = openCart; $('closeCart').onclick = closeCart; $('shade').onclick = closeCart;
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCart(); });
+  $('checkoutBtn').onclick = function () {
+    if (CHECKOUT_URL) location.href = CHECKOUT_URL;
+    else toast(T('Checkout opens soon. Thank you for your patience!'));
+  };
+  shipOptions();
+  render();
+
+  // translate every static text on the page (originals kept, so switching back works)
+  var ORIG = [];
+  (function collect() {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        var p = n.parentElement;
+        if (!p || p.tagName === 'SCRIPT' || p.tagName === 'STYLE' || p.tagName === 'OPTION' || p.closest('#items') || p.closest('#shipOpts') || p.id === 'mm' || p.id === 'cname' || p.id === 'shipAmt') return 2;
+        return n.nodeValue.trim() ? 1 : 2;
+      },
+    });
+    var n;
+    while ((n = w.nextNode())) ORIG.push([n, n.nodeValue]);
+  })();
+  function applyLang(l) {
+    LANG = l;
+    document.documentElement.lang = l === 'en' ? 'en' : l;
+    ORIG.forEach(function (o) {
+      var raw = o[1], key = raw.trim().replace(/\s+/g, ' ');
+      var t = T(key);
+      var cjk = l === 'zh-TW' || l === 'zh-CN' || l === 'ja';
+      o[0].nodeValue = t === key ? raw : cjk ? t : raw.replace(raw.trim(), t);
+    });
+    $('cname').textContent = T(pick.color);
+    var on = btns.querySelector('button.on');
+    if (on) $('mm').textContent = on.dataset.s + ' · ' + on.dataset.mm + ' mm ' + T('inside');
+    shipOptions();
+    render();
+    try { localStorage.setItem('elvera.lang', l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('elvera.lang'); } catch (e) {}
+  var nl = (navigator.language || 'en').toLowerCase();
+  var guess = nl.indexOf('zh') === 0 ? (/(cn|sg|hans)/.test(nl) ? 'zh-CN' : 'zh-TW') : nl.indexOf('es') === 0 ? 'es' : nl.indexOf('ja') === 0 ? 'ja' : 'en';
+  var start = saved || guess;
+  $('lang').value = start;
+  $('lang').onchange = function () { applyLang(this.value); };
+  if (start !== 'en') applyLang(start);
+
+  try { new QRCode($('qr'), { text: APP_LINK, width: 440, height: 440, colorDark: '#13284a', colorLight: '#ffffff' }); } catch (e) {}
+  var nav = $('nav');
+  addEventListener('scroll', function () { nav.classList.toggle('solid', scrollY > 40); }, { passive: true });
+</script>
+</body>
+</html>
