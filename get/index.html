@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get the ELVÉRA app · ELVÉRA</title>
+<link rel="icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --cream:#fdf8f1; --ink:#1d2733; --soft:#5e6873; --line:rgba(29,39,51,.1); --ocean:#2a6fc4; --night:#13284a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--cream); color:var(--ink); font:17px/1.7 Inter, system-ui, -apple-system, "PingFang TC", "Hiragino Sans", sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:var(--ocean); }
+  header { border-bottom:1px solid var(--line); background:#fff; }
+  .bar { max-width:860px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .logo { font-family:Fraunces, Georgia, serif; font-size:22px; letter-spacing:.18em; color:var(--ink); text-decoration:none; }
+  select { min-height:40px; border-radius:999px; border:1.5px solid var(--line); background:#fff; padding:0 12px; font:600 14px Inter, sans-serif; color:var(--ink); }
+  main { max-width:860px; margin:0 auto; padding:36px 20px 64px; }
+  h1 { font-family:Fraunces, Georgia, serif; font-weight:500; font-size:clamp(30px, 5vw, 42px); line-height:1.15; margin:0 0 6px; }
+  h2 { font-size:19px; margin:30px 0 8px; }
+  p { margin:0 0 12px; }
+  p.meta { color:var(--soft); font-size:15px; margin-bottom:22px; }
+  ul { margin:0 0 12px; padding-left:22px; }
+  li { margin:4px 0; }
+  .doc[hidden] { display:none; }
+  footer { background:var(--night); color:rgba(255,255,255,.65); font-size:15px; }
+  footer .bar { flex-wrap:wrap; padding:28px 20px 40px; }
+  footer a { color:#fff; margin-right:16px; }
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="/">ELVÉRA</a>
+  <select id="lang" aria-label="Language"><option value="en">🌐 English</option><option value="zh-TW">繁體中文</option><option value="zh-CN">简体中文</option><option value="es">Español</option><option value="ja">日本語</option></select>
+</div></header>
+<main>
+<div class="doc" data-lang="en">
+<h1>Get the ELVÉRA app</h1>
+<p><a style="display:inline-block;margin:6px 8px 6px 0;padding:14px 24px;border-radius:999px;background:#13284a;color:#fff;text-decoration:none;font-weight:600" href="https://apps.apple.com/app/id6834624746">Download on the App Store</a></p>
+<p class="meta">The Android version is coming soon.</p>
+</div>
+<div class="doc" data-lang="zh" hidden>
+<h1>下載 ELVÉRA App</h1>
+<p><a style="display:inline-block;margin:6px 8px 6px 0;padding:14px 24px;border-radius:999px;background:#13284a;color:#fff;text-decoration:none;font-weight:600" href="https://apps.apple.com/app/id6834624746">到 App Store 下載</a></p>
+<p class="meta">Android 版即將推出。</p>
+</div>
+<div class="doc" data-lang="ja" hidden>
+<h1>ELVÉRA アプリを入手</h1>
+<p><a style="display:inline-block;margin:6px 8px 6px 0;padding:14px 24px;border-radius:999px;background:#13284a;color:#fff;text-decoration:none;font-weight:600" href="https://apps.apple.com/app/id6834624746">App Store でダウンロード</a></p>
+<p class="meta">Android 版はまもなく公開します。</p>
+</div>
+<div class="doc" data-lang="es" hidden>
+<h1>Descarga la app ELVÉRA</h1>
+<p><a style="display:inline-block;margin:6px 8px 6px 0;padding:14px 24px;border-radius:999px;background:#13284a;color:#fff;text-decoration:none;font-weight:600" href="https://apps.apple.com/app/id6834624746">Descargar en App Store</a></p>
+<p class="meta">La versión para Android llegará pronto.</p>
+</div>
+</main>
+<script>
+  var ua = navigator.userAgent || '';
+  if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && 'ontouchend' in document)) location.replace('https://apps.apple.com/app/id6834624746');
+  
+</script>
+<footer><div class="bar">
+  <div><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></div>
+  <div>support@elveraring.com</div>
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/t2cn.js"></script>
+<script>
+  // Same language memory as the shop page (localStorage "elvera.lang"). 简体中文 is converted from 繁體中文.
+  var docs = { en: 'en', 'zh-TW': 'zh', 'zh-CN': 'zh', ja: 'ja', es: 'es' };
+  var zhHtml = null;
+  function apply(l) {
+    if (!docs[l]) l = 'en';
+    document.querySelectorAll('.doc').forEach(function (d) { d.hidden = d.dataset.lang !== docs[l]; });
+    var zh = document.querySelector('.doc[data-lang="zh"]');
+    if (zh) {
+      if (zhHtml === null) zhHtml = zh.innerHTML;
+      zh.innerHTML = zhHtml;
+      if (l === 'zh-CN' && window.OpenCC) {
+        var cv = OpenCC.Converter({ from: 'tw', to: 'cn' });
+        zh.innerHTML = cv(zhHtml);
+      }
+    }
+    document.documentElement.lang = l === 'en' ? 'en' : l;
+    document.getElementById('lang').value = l;
+    try { localStorage.setItem('elvera.lang', l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('elvera.lang'); } catch (e) {}
+  var nl = (navigator.language || 'en').toLowerCase();
+  var guess = nl.indexOf('zh') === 0 ? (/cn|sg|hans/.test(nl) ? 'zh-CN' : 'zh-TW') : nl.indexOf('ja') === 0 ? 'ja' : nl.indexOf('es') === 0 ? 'es' : 'en';
+  apply(saved || guess);
+  document.getElementById('lang').onchange = function () { apply(this.value); };
+</script>
+</body>
+</html>
