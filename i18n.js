@@ -4,6 +4,9 @@
  */
 window.ELV_I18N = {
   'zh-TW': {
+    "Privacy": "隱私權",
+    "Terms": "使用條款",
+    "Support": "客服",
     "🔔 Your phone alerts you gently if something's off": "🔔 不對勁時，手機會輕輕提醒你",
     "Your phone alerts you gently if it runs far above your usual while you rest.": "休息時比平常快很多，手機會輕輕提醒你。",
     "Phone & watch alerts": "手機和手錶都會提醒",
@@ -185,6 +188,9 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': '結帳功能即將開放，謝謝你耐心等候！',
   },
   es: {
+    "Privacy": "Privacidad",
+    "Terms": "Condiciones",
+    "Support": "Soporte",
     "🔔 Your phone alerts you gently if something's off": "🔔 Tu teléfono te avisa con suavidad si algo va mal",
     "Your phone alerts you gently if it runs far above your usual while you rest.": "Tu teléfono te avisa con suavidad si va muy por encima de lo habitual en reposo.",
     "Phone & watch alerts": "Alertas en teléfono y reloj",
@@ -354,6 +360,9 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': 'El pago abre pronto. ¡Gracias por tu paciencia!',
   },
   ja: {
+    "Privacy": "プライバシー",
+    "Terms": "利用規約",
+    "Support": "サポート",
     "🔔 Your phone alerts you gently if something's off": "🔔 いつもと違う時は、スマホがそっとお知らせ",
     "Your phone alerts you gently if it runs far above your usual while you rest.": "安静時に普段よりかなり速い時は、スマホがそっとお知らせします。",
     "Phone & watch alerts": "スマホと時計でお知らせ",
