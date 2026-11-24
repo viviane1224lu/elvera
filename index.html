@@ -263,6 +263,7 @@
   .size-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .size-btns button { min-width: 48px; min-height: 46px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; font: 600 16px Inter; cursor: pointer; color: var(--ink); }
   .size-btns button.on { background: var(--night); color: #fff; border-color: var(--night); }
+  .size-print { display: inline-block; margin-left: 10px; font-size: 14px; font-weight: 600; color: var(--ocean); background: #eaf2fc; border-radius: 999px; padding: 4px 12px; text-decoration: none; white-space: nowrap; }
   .ringrow { background: #fff; border: 1.5px solid var(--line); border-radius: 18px; padding: 12px 14px; margin-top: 10px; }
   .ringrow b { display: block; font-size: 15px; margin-bottom: 8px; }
   .ringrow .pick { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
@@ -454,7 +455,7 @@
         <button data-color="Black" data-img="img/ring-black.png" style="background:linear-gradient(135deg,#4a4f55,#121417)" aria-label="Black"></button>
         <button data-color="Gold" data-img="img/ring-gold.png" style="background:linear-gradient(135deg,#f7dfa6,#c49a46)" aria-label="Gold"></button>
       </div>
-      <div class="opt">Size: <span id="mm">8 · 18.2 mm inside</span></div>
+      <div class="opt">Size: <span id="mm">8 · 18.2 mm inside</span> <a class="size-print" href="size/" target="_blank" rel="noopener">🖨️ Measure your size</a></div>
       <div class="size-btns" id="sizeBtns"></div>
       </div>
       <button class="kit-link" id="kitBtn">Not sure of your size? See the size guide</button>

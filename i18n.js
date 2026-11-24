@@ -4,6 +4,7 @@
  */
 window.ELV_I18N = {
   'zh-TW': {
+    "🖨️ Measure your size": "🖨️ 量尺寸",
     "Ring {}": "第 {} 個戒指", "Pick a color and size for each ring. Not sure of a size? Print our ring sizer below.": "每個戒指都可以選自己的顏色和尺寸。不確定尺寸？可以印下面的尺寸量測卡。",
     "No ring to measure? Print our free sizer with a paper strip and circles, and find your size at home in two minutes.": "沒有戒指可以量？印出我們免費的量測卡，用紙條或圓圈，在家兩分鐘就知道尺寸。",
     "🖨️ Print a ring sizer": "🖨️ 列印尺寸量測卡", "print our ring sizer": "列印我們的尺寸量測卡",
@@ -193,6 +194,7 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': '結帳功能即將開放，謝謝你耐心等候！',
   },
   es: {
+    "🖨️ Measure your size": "🖨️ Mide tu talla",
     "Ring {}": "Anillo {}", "Pick a color and size for each ring. Not sure of a size? Print our ring sizer below.": "Elige color y talla para cada anillo. ¿No sabes la talla? Imprime nuestro medidor abajo.",
     "No ring to measure? Print our free sizer with a paper strip and circles, and find your size at home in two minutes.": "¿No tienes un anillo para medir? Imprime nuestro medidor gratis con tira de papel y círculos, y encuentra tu talla en casa en dos minutos.",
     "🖨️ Print a ring sizer": "🖨️ Imprime un medidor de talla", "print our ring sizer": "imprime nuestro medidor",
@@ -370,6 +372,7 @@ window.ELV_I18N = {
     'Checkout opens soon. Thank you for your patience!': 'El pago abre pronto. ¡Gracias por tu paciencia!',
   },
   ja: {
+    "🖨️ Measure your size": "🖨️ サイズを測る",
     "Ring {}": "リング {}", "Pick a color and size for each ring. Not sure of a size? Print our ring sizer below.": "リングごとにカラーとサイズを選べます。サイズがわからない？下の測定シートを印刷してください。",
     "No ring to measure? Print our free sizer with a paper strip and circles, and find your size at home in two minutes.": "測る指輪がない？無料の測定シート（紙のストリップと円）を印刷すれば、自宅で2分でサイズがわかります。",
     "🖨️ Print a ring sizer": "🖨️ サイズ測定シートを印刷", "print our ring sizer": "サイズ測定シートを印刷",
