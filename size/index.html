@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELVÉRA Ring Sizer</title>
+<link rel="icon" href="../img/ring-silver.png">
+<style>
+  :root { --ink:#13284a; --soft:#55627a; --line:#cfd6e2; --bg:#fbf7f1; --lime:#d8f26a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"PingFang TC","Hiragino Sans",Inter,sans-serif; line-height:1.55; }
+  main { max-width: 190mm; margin: 0 auto; padding: 24px 16px 60px; }
+  .top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  a.back { color:var(--soft); text-decoration:none; font-size:15px; }
+  select, button.print { font:600 15px inherit; font-family:inherit; border:1.5px solid var(--line); background:#fff; color:var(--ink); border-radius:999px; padding:8px 14px; }
+  button.print { background:var(--ink); color:#fff; border-color:var(--ink); cursor:pointer; padding:10px 22px; }
+  h1 { font-family: Georgia, "Songti TC", serif; font-weight:400; font-size:32px; margin:18px 0 6px; }
+  .lead { color:var(--soft); margin:0 0 18px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px 18px; margin:14px 0; break-inside: avoid; }
+  .card h2 { font-size:18px; margin:0 0 6px; }
+  .card p, .card li { color:var(--soft); font-size:15px; margin:4px 0; }
+  .check { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .cc { width:85.6mm; height:53.98mm; border:0.4mm dashed var(--ink); border-radius:3mm; display:grid; place-items:center; font-size:12px; color:var(--soft); flex:none; }
+  .ruler { position:relative; width:100mm; height:10mm; border-bottom:0.3mm solid var(--ink); margin-top:6px; }
+  .ruler i { position:absolute; bottom:0; width:0.25mm; background:var(--ink); }
+  .ruler b { position:absolute; bottom:5mm; font:500 8px Inter, sans-serif; transform:translateX(-50%); }
+  .circles { display:flex; flex-wrap:wrap; gap:6mm 5mm; margin-top:10px; }
+  .circles div { width:27mm; display:flex; flex-direction:column; align-items:center; font-size:12px; color:var(--soft); }
+  .circles span { display:block; border:0.3mm solid var(--ink); border-radius:50%; margin-bottom:2mm; position:relative; }
+  .circles span::after { content:""; position:absolute; left:50%; top:50%; width:1.2mm; height:1.2mm; margin:-0.6mm; border-radius:50%; background:var(--ink); }
+  .circles b { color:var(--ink); font-size:14px; }
+  .strip { position:relative; width:180mm; max-width:100%; height:16mm; border:0.3mm dashed var(--ink); margin-top:12px; overflow:hidden; background:#fff; }
+  .strip .start { position:absolute; left:8mm; top:0; bottom:0; border-left:0.5mm solid #e2554a; }
+  .strip .mk { position:absolute; top:0; height:7mm; border-left:0.3mm solid var(--ink); }
+  .strip .mk b { position:absolute; top:7.5mm; left:-2mm; font:600 9px Inter, sans-serif; }
+  .strip .tab { position:absolute; left:1mm; top:4mm; font-size:8px; color:#e2554a; writing-mode:vertical-rl; }
+  .cut { font-size:12px; color:var(--soft); margin-top:4px; }
+  table { border-collapse:collapse; font-size:14px; margin-top:6px; }
+  td, th { padding:4px 18px 4px 0; border-bottom:1px solid var(--line); text-align:left; }
+  .tip { background:#f4f8e2; border-radius:12px; padding:10px 14px; font-size:14px; margin-top:10px; }
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background:#fff; }
+    .noprint { display:none !important; }
+    main { padding:0; max-width:none; }
+    .card { border-color:#999; padding:10px 12px; margin:8px 0; }
+    h1 { font-size:24px; margin-top:0; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="top noprint">
+    <a class="back" href="../">← ELVÉRA</a>
+    <div style="display:flex;gap:8px;align-items:center">
+      <select id="lang" aria-label="Language">
+        <option value="en">English</option><option value="zh-TW">繁體中文</option><option value="ja">日本語</option><option value="es">Español</option>
+      </select>
+      <button class="print" onclick="window.print()" data-t="print">Print this page</button>
+    </div>
+  </div>
+
+  <h1 data-t="title">Find your ring size</h1>
+  <p class="lead" data-t="lead">Print this page, then use either method below. It takes about two minutes.</p>
+
+  <div class="card">
+    <h2 data-t="c0">Before you start: check the print size</h2>
+    <p data-t="c0p">Print at 100% ("Actual size", not "Fit to page"). Then lay a credit card on the box. If it matches the box, the sizer is accurate.</p>
+    <div class="check">
+      <div class="cc" data-t="cc">Credit card size</div>
+      <div><div class="ruler" id="ruler"></div><p style="font-size:12px" data-t="rl">This line is 10 cm</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="m1">Method 1 · You already have a ring that fits (most accurate)</h2>
+    <p data-t="m1p">Place the ring on the circles. Your size is the circle that fits just inside the ring, with the line still visible all around.</p>
+    <div class="circles" id="circles"></div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="m2">Method 2 · Paper strip</h2>
+    <ol>
+      <li data-t="s1">Cut out the strip along the dashed line.</li>
+      <li data-t="s2">Wrap it around the finger you will wear the ring on, numbers facing out. Snug, but not tight.</li>
+      <li data-t="s3">Where the red line meets the strip, read the number. Between two numbers? Choose the larger one.</li>
+    </ol>
+    <div class="strip" id="strip"><div class="tab">START</div><div class="start"></div></div>
+    <div class="cut" data-t="cut">✂ cut along the dashed line</div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="tt">Size chart</h2>
+    <table id="table"><tr><th data-t="th1">Size</th><th data-t="th2">Inside diameter</th><th data-t="th3">Around the finger</th></tr></table>
+    <div class="tip" data-t="tip">Tip: smart rings are thicker than normal rings. Measure in the afternoon, when fingers are a little bigger. We suggest the index or middle finger.</div>
+  </div>
+</main>
+<script>
+  var SIZES = [[6,16.5],[7,17.4],[8,18.2],[9,19.0],[10,19.9],[11,20.7],[12,21.5],[13,22.1],[14,23.1]];
+  var L = {
+    'zh-TW': { print:'列印這一頁', title:'量出你的戒指尺寸', lead:'把這一頁印出來，用下面任一種方法量，大約兩分鐘。', c0:'開始前：先確認列印大小', c0p:'列印時選 100%（「實際大小」，不要選「符合頁面」）。印好後把一張信用卡放在框框上，大小一樣就代表量得準。', cc:'信用卡大小', rl:'這條線是 10 公分', m1:'方法一 · 家裡有一個戴起來剛好的戒指（最準）', m1p:'把戒指放在圓圈上。剛好可以放進戒指裡、四周還看得到圓圈線的那一個，就是你的尺寸。', m2:'方法二 · 紙條', s1:'沿著虛線把紙條剪下來。', s2:'把紙條繞在你要戴戒指的那根手指上，數字朝外。貼緊但不要勒。', s3:'看紅線對到哪個數字，就是你的尺寸。卡在兩個數字中間的話，選大的那個。', cut:'✂ 沿著虛線剪下', tt:'尺寸對照表', th1:'尺寸', th2:'內徑', th3:'手指一圈', tip:'小提醒：智慧戒指比一般戒指厚一點。建議下午量，手指會稍微大一點。建議戴在食指或中指。' },
+    ja: { print:'このページを印刷', title:'リングサイズを測りましょう', lead:'このページを印刷して、下のどちらかの方法で測ってください。約2分で終わります。', c0:'はじめに：印刷サイズを確認', c0p:'100%（「実際のサイズ」、「ページに合わせる」ではなく）で印刷してください。クレジットカードを枠に重ねて、ぴったりなら正確です。', cc:'クレジットカードの大きさ', rl:'この線は10cmです', m1:'方法1 · ぴったりの指輪がある（いちばん正確）', m1p:'指輪を円の上に置きます。指輪の内側にちょうど収まり、円の線が周りに見えるものがあなたのサイズです。', m2:'方法2 · 紙のストリップ', s1:'点線に沿ってストリップを切り取ります。', s2:'リングをつける指に、数字を外側にして巻きます。ぴったり、でもきつくない程度に。', s3:'赤い線が重なる数字を読みます。数字の間なら、大きいほうを選んでください。', cut:'✂ 点線に沿って切る', tt:'サイズ表', th1:'サイズ', th2:'内径', th3:'指まわり', tip:'ヒント：スマートリングは普通の指輪より少し厚めです。指が少し太くなる午後に測るのがおすすめ。人差し指か中指がおすすめです。' },
+    es: { print:'Imprimir esta página', title:'Encuentra tu talla de anillo', lead:'Imprime esta página y usa uno de los dos métodos. Tarda unos dos minutos.', c0:'Antes de empezar: revisa el tamaño de impresión', c0p:'Imprime al 100% ("Tamaño real", no "Ajustar a la página"). Pon una tarjeta de crédito sobre el recuadro. Si coincide, el medidor es exacto.', cc:'Tamaño de tarjeta de crédito', rl:'Esta línea mide 10 cm', m1:'Método 1 · Ya tienes un anillo que te queda bien (el más exacto)', m1p:'Coloca el anillo sobre los círculos. Tu talla es el círculo que cabe justo dentro del anillo, con la línea visible alrededor.', m2:'Método 2 · Tira de papel', s1:'Recorta la tira por la línea punteada.', s2:'Enróllala en el dedo donde llevarás el anillo, con los números hacia fuera. Ajustada, pero sin apretar.', s3:'Lee el número donde llega la línea roja. ¿Entre dos números? Elige el mayor.', cut:'✂ recorta por la línea punteada', tt:'Tabla de tallas', th1:'Talla', th2:'Diámetro interior', th3:'Contorno del dedo', tip:'Consejo: los anillos inteligentes son un poco más gruesos. Mide por la tarde, cuando los dedos están algo más grandes. Te sugerimos el índice o el dedo medio.' }
+  };
+  var orig = {};
+  document.querySelectorAll('[data-t]').forEach(function (el) { orig[el.dataset.t] = el.textContent; });
+  function apply(l) {
+    var d = L[l] || {};
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = d[el.dataset.t] || orig[el.dataset.t]; });
+    try { localStorage.setItem('elvera.lang', l === 'zh-CN' ? 'zh-CN' : l); } catch (e) {}
+  }
+  // ruler 0–10 cm
+  var r = document.getElementById('ruler');
+  for (var mm = 0; mm <= 100; mm++) {
+    var h = mm % 10 === 0 ? 6 : mm % 5 === 0 ? 4 : 2.2;
+    r.insertAdjacentHTML('beforeend', '<i style="left:' + mm + 'mm;height:' + h + 'mm"></i>' + (mm % 10 === 0 ? '<b style="left:' + mm + 'mm">' + mm / 10 + '</b>' : ''));
+  }
+  var c = document.getElementById('circles'), s = document.getElementById('strip'), t = document.getElementById('table');
+  SIZES.forEach(function (z) {
+    var circ = Math.PI * z[1];
+    c.insertAdjacentHTML('beforeend', '<div><span style="width:' + z[1] + 'mm;height:' + z[1] + 'mm"></span><b>' + z[0] + '</b>' + z[1].toFixed(1) + ' mm</div>');
+    s.insertAdjacentHTML('beforeend', '<div class="mk" style="left:' + (8 + circ).toFixed(2) + 'mm"><b>' + z[0] + '</b></div>');
+    t.insertAdjacentHTML('beforeend', '<tr><td>' + z[0] + '</td><td>' + z[1].toFixed(1) + ' mm</td><td>' + circ.toFixed(1) + ' mm</td></tr>');
+  });
+  var saved = null; try { saved = localStorage.getItem('elvera.lang'); } catch (e) {}
+  var nl = (navigator.language || 'en').toLowerCase();
+  var start = saved || (nl.indexOf('zh') === 0 ? 'zh-TW' : nl.indexOf('ja') === 0 ? 'ja' : nl.indexOf('es') === 0 ? 'es' : 'en');
+  if (start === 'zh-CN') start = 'zh-TW';
+  var sel = document.getElementById('lang'); sel.value = start; sel.onchange = function () { apply(this.value); };
+  if (start !== 'en') apply(start);
+</script>
+</body>
+</html>

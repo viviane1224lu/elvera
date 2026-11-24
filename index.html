@@ -263,6 +263,26 @@
   .size-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .size-btns button { min-width: 48px; min-height: 46px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; font: 600 16px Inter; cursor: pointer; color: var(--ink); }
   .size-btns button.on { background: var(--night); color: #fff; border-color: var(--night); }
+  .ringrow { background: #fff; border: 1.5px solid var(--line); border-radius: 18px; padding: 12px 14px; margin-top: 10px; }
+  .ringrow b { display: block; font-size: 15px; margin-bottom: 8px; }
+  .ringrow .pick { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .ringrow .sw { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1.5px var(--line); cursor: pointer; padding: 0; }
+  .ringrow .sw.on { box-shadow: 0 0 0 3px var(--ocean); }
+  .ringrow select { margin-left: auto; font: 600 15px Inter, sans-serif; color: var(--ink); border: 1.5px solid var(--line); border-radius: 12px; padding: 8px 10px; background: #fff; min-height: 44px; }
+  .multi-note { font-size: 14px; color: var(--soft); margin-top: 10px; }
+  .sizer-cta { margin: 26px auto 0; max-width: 520px; text-align: center; }
+  .sizer-cta .btn { display: inline-block; text-decoration: none; }
+  .sizer-cta p { color: var(--soft); font-size: 15px; margin-top: 10px; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+  .plans button { position: relative; text-align: left; border: 1.5px solid var(--line); background: #fff; border-radius: 18px; padding: 14px 12px 12px; cursor: pointer; font-family: inherit; color: var(--ink); }
+  .plans button.on { border-color: var(--night); box-shadow: 0 0 0 1.5px var(--night); }
+  .plans b { display: block; font-size: 15px; }
+  .plans .pp { display: block; font: 600 22px Fraunces, serif; margin-top: 4px; }
+  .plans small { display: block; color: var(--soft); font-size: 13px; margin-top: 2px; }
+  .plans .save { position: absolute; top: -10px; right: 10px; font: 700 11px Inter; background: var(--lime); color: #1d2a0a; padding: 3px 8px; border-radius: 999px; }
+  .plan-note { font-size: 14px; color: var(--soft); margin-top: 8px; }
+  .line.disc { color: var(--green); font-weight: 600; }
+  @media (max-width: 520px) { .plans { gap: 8px; } .plans button { padding: 14px 8px 10px; } .plans .pp { font-size: 19px; } }
   .kit-link { display: inline-block; margin-top: 10px; font-size: 15px; color: var(--ocean); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; font-family: inherit; }
   .buy-row { display: flex; gap: 12px; margin-top: 26px; align-items: stretch; }
   .qty { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 999px; background: #fff; }
@@ -420,6 +440,14 @@
       <h1>Care that fits <em>on your finger.</em></h1>
       <p class="tag-line">Heart, sleep and energy, looked after day and night, and explained in plain, kind words. From cycles and pregnancy to menopause and senior care, for every stage of life.</p>
       <div class="price"><span id="priceNow">$199</span><s id="priceWas">$219</s><span class="badge">Special offer</span></div>
+      <div class="opt">How many rings?</div>
+      <div class="plans" id="plans">
+        <button class="on" data-n="1"><b>Just me</b><span class="pp" id="p1">$199</span><small>1 ring</small></button>
+        <button data-n="2"><span class="save" id="s2">Save $29</span><b>Family of 2</b><span class="pp" id="p2">$369</span><small>2 rings · $185 each</small></button>
+        <button data-n="3"><span class="save" id="s3">Save $68</span><b>Family of 3</b><span class="pp" id="p3">$529</span><small>3 rings · $177 each</small></button>
+      </div>
+      <div id="multi" style="display:none"></div>
+      <div id="single">
       <div class="opt">Color: <span id="cname">Silver</span></div>
       <div class="colors" role="radiogroup" aria-label="Color">
         <button class="on" data-color="Silver" data-img="img/ring-silver.png" style="background:linear-gradient(135deg,#f4f6f8,#a9b2bb)" aria-label="Silver"></button>
@@ -428,11 +456,14 @@
       </div>
       <div class="opt">Size: <span id="mm">8 · 18.2 mm inside</span></div>
       <div class="size-btns" id="sizeBtns"></div>
+      </div>
       <button class="kit-link" id="kitBtn">Not sure of your size? See the size guide</button>
+      <a class="kit-link" href="size/" target="_blank" rel="noopener" style="margin-left:14px">🖨️ Print a ring sizer</a>
       <div class="buy-row">
-        <div class="qty"><button id="qMinus" aria-label="Fewer">−</button><span id="qty">1</span><button id="qPlus" aria-label="More">+</button></div>
+        <div class="qty" id="qtyBox"><button id="qMinus" aria-label="Fewer">−</button><span id="qty">1</span><button id="qPlus" aria-label="More">+</button></div>
         <button class="btn btn-main" id="addBtn">Add to cart</button>
       </div>
+      <p class="plan-note" style="margin-top:12px">🛡️ 30-day returns · 1-year warranty</p>
       <div class="perks"><div>9 sizes, 3 colors</div><div>Ships worldwide with DHL</div><div>30-day returns</div><div>1-year warranty</div><div>iPhone &amp; Android</div><div>Ring + charging case</div></div>
     </div>
   </div>
@@ -721,6 +752,7 @@
     <h2>A fit for every hand, <em>a color for every style.</em></h2>
     <p class="lead">Not sure of your size? Measure the inside of a ring that fits you, then match it below.</p>
     <div class="size-row" id="sizeRow"></div>
+    <div class="sizer-cta"><a class="btn btn-main" href="size/" target="_blank" rel="noopener">🖨️ Print a ring sizer</a><p>No ring to measure? Print our free sizer with a paper strip and circles, and find your size at home in two minutes.</p></div>
     <div class="color-row">
       <figure><img src="img/ring-silver.png" alt="">Silver</figure>
       <figure><img src="img/ring-black.png" alt="">Black</figure>
@@ -757,6 +789,7 @@
         <details><summary>Can I try the app before buying?</summary><p>Yes. Download ELVÉRA and turn on Demo mode to explore every screen with sample data.</p></details>
     <details><summary>Is it easy for my parents to use?</summary><p>That's who we designed it for. Big text, simple words, and family members can see how each other are doing.</p></details>
     <details><summary>How do I choose a size?</summary><p>We suggest your index or middle finger. The right size feels snug without spinning. Measure the inside of a ring that fits you and match its diameter:</p><table id="sizeTable"><tr><th>Size</th><th>Inside diameter</th></tr></table></details>
+    <details><summary>What if it doesn't fit, or I change my mind?</summary><p>Every order comes with 30-day returns. Send the ring back within 30 days of delivery and we'll make it right. Every ring also has a 1-year warranty.</p></details>
     <details><summary>Where is my data stored?</summary><p>Your health data stays on your own phone unless you choose to share it with family. You can turn sharing off at any time.</p></details>
     <details><summary>Is ELVÉRA a medical device?</summary><p>No. ELVÉRA is for everyday wellness and is not intended to diagnose, treat or prevent any disease. Always talk with your doctor about your health.</p></details>
   </div>
@@ -772,6 +805,7 @@
     <div class="ship" id="shipOpts"></div>
     <div class="duty" id="duty">Import duties or taxes may be charged by your country on delivery.</div>
     <div class="line"><span>Subtotal</span><span id="sub">$0.00</span></div>
+    <div class="line disc" id="discLine" style="display:none"><span>Family price</span><span id="disc">−$0.00</span></div>
     <div class="line"><span>Shipping</span><span id="shipAmt">Free</span></div>
     <div class="line"><span>Sales tax</span><span>Calculated at checkout</span></div>
     <div class="line total"><span>Total</span><span id="total">$0.00</span></div>
@@ -798,9 +832,10 @@
 <script>
   // ===== settings you can change =====
   var PRICE = 199, WAS = 219;            // offer price and regular price (USD)
+  var FAMILY2 = 369, FAMILY3 = 529;      // family prices for 2 rings and 3 rings (USD); 4+ rings keep the 3-ring price per ring
   // shipping (USD) by where the parcel goes; change freely
   var SHIP = {
-    US: [['Standard · 5–7 business days', 7.95], ['Expedited · 2–3 business days', 14.95], ['Overnight · 1 business day', 29.95]],
+    US: [['Standard · 7–10 business days', 7.95], ['Expedited · 2–3 business days', 14.95], ['Overnight · 1 business day', 29.95]],
     CA: [['DHL Express · 3–5 business days', 24.95]],
     MX: [['DHL Express · 3–6 business days', 29.95]],
     TW: [['DHL Express · 4–7 business days', 34.95]],
@@ -871,8 +906,42 @@
       $('mm').textContent = b.dataset.s + ' · ' + b.dataset.mm + ' mm ' + T('inside');
     };
   });
-  $('qMinus').onclick = function () { pick.qty = Math.max(1, pick.qty - 1); $('qty').textContent = pick.qty; };
-  $('qPlus').onclick = function () { pick.qty = Math.min(9, pick.qty + 1); $('qty').textContent = pick.qty; };
+  var SW = { Silver: 'linear-gradient(135deg,#f4f6f8,#a9b2bb)', Black: 'linear-gradient(135deg,#4a4f55,#121417)', Gold: 'linear-gradient(135deg,#f7dfa6,#c49a46)' };
+  var plan = 1, rings = [];
+  function setQty(n) { pick.qty = n; $('qty').textContent = n; }
+  function drawMulti() {
+    var box = $('multi');
+    box.innerHTML = rings.map(function (r, i) {
+      return '<div class="ringrow"><b>' + TF('Ring {}', i + 1) + ' · ' + T(r.color) + '</b><div class="pick">' +
+        ['Silver', 'Black', 'Gold'].map(function (c) { return '<button class="sw' + (r.color === c ? ' on' : '') + '" data-r="' + i + '" data-c="' + c + '" style="background:' + SW[c] + '" aria-label="' + T(c) + '"></button>'; }).join('') +
+        '<select data-r="' + i + '" aria-label="' + T('Size:') + '">' + SIZES.map(function (z) { return '<option value="' + z[0] + '"' + (z[0] === r.size ? ' selected' : '') + '>' + TF('Size {}', z[0]) + ' · ' + z[1].toFixed(1) + ' mm</option>'; }).join('') + '</select></div></div>';
+    }).join('') + '<p class="multi-note">' + T('Pick a color and size for each ring. Not sure of a size? Print our ring sizer below.') + '</p>';
+    box.querySelectorAll('.sw').forEach(function (b) { b.onclick = function () { rings[+b.dataset.r].color = b.dataset.c; drawMulti(); }; });
+    box.querySelectorAll('select').forEach(function (sel) { sel.onchange = function () { rings[+sel.dataset.r].size = +sel.value; }; });
+  }
+  function setPlan(n) {
+    plan = n;
+    document.querySelectorAll('#plans button').forEach(function (b) { b.classList.toggle('on', +b.dataset.n === n); });
+    var multi = n > 1;
+    $('single').style.display = multi ? 'none' : '';
+    $('qtyBox').style.display = multi ? 'none' : '';
+    $('multi').style.display = multi ? '' : 'none';
+    if (multi) {
+      while (rings.length < n) rings.push({ color: pick.color, size: pick.size });
+      rings.length = n;
+      drawMulti();
+    } else setQty(1);
+  }
+  $('qMinus').onclick = function () { setQty(Math.max(1, pick.qty - 1)); };
+  $('qPlus').onclick = function () { setQty(Math.min(9, pick.qty + 1)); };
+  document.querySelectorAll('#plans button').forEach(function (b) { b.onclick = function () { setPlan(+b.dataset.n); }; });
+  $('p1').textContent = '$' + PRICE; $('p2').textContent = '$' + FAMILY2; $('p3').textContent = '$' + FAMILY3;
+  // family discount: what n rings cost at the family price, compared with n × PRICE
+  function familyOff(n) {
+    if (n < 2) return 0;
+    var each = n === 2 ? FAMILY2 / 2 : FAMILY3 / 3;
+    return Math.round((PRICE - each) * n * 100) / 100;
+  }
 
   // ===== cart =====
   var cart = [];
@@ -885,6 +954,14 @@
     save(); render(); openCart();
   }
   $('addBtn').onclick = function () {
+    if (plan > 1) {
+      rings.forEach(function (r) {
+        var k = 'ring-' + r.color + '-' + r.size, same = cart.find(function (x) { return x.key === k; });
+        if (same) same.qty = Math.min(9, same.qty + 1);
+        else cart.push({ key: k, name: 'ELVÉRA ONE', color: r.color, size: r.size, img: IMG[r.color], price: PRICE, qty: 1 });
+      });
+      save(); render(); openCart(); return;
+    }
     add({ key: 'ring-' + pick.color + '-' + pick.size, name: 'ELVÉRA ONE', color: pick.color, size: pick.size, img: IMG[pick.color], price: PRICE, qty: pick.qty });
   };
   $('kitBtn').onclick = function () { $('sizes').scrollIntoView({ behavior: 'smooth' }); };
@@ -912,9 +989,14 @@
   }
   function totals() {
     var sub = cart.reduce(function (a, x) { return a + x.price * x.qty; }, 0);
+    var rings = cart.reduce(function (a, x) { return a + (x.color ? x.qty : 0); }, 0);
+    var off = familyOff(rings);
+    $('discLine').style.display = off ? '' : 'none';
+    $('disc').textContent = '−' + money(off);
+    sub -= off;
     var checked = document.querySelector('input[name=ship]:checked');
     var ship = checked ? +checked.value : 0;
-    $('sub').textContent = money(sub);
+    $('sub').textContent = money(sub + off);
     $('shipAmt').textContent = ship ? money(ship) : T('Free');
     $('total').textContent = money(sub + ship);
   }
@@ -963,6 +1045,7 @@
     });
     document.querySelectorAll('#region option').forEach(function (o) { o.dataset.en = o.dataset.en || o.textContent; o.textContent = T(o.dataset.en); });
     $('cname').textContent = T(pick.color);
+    if (plan > 1) drawMulti();
     var on = btns.querySelector('button.on');
     if (on) $('mm').textContent = on.dataset.s + ' · ' + on.dataset.mm + ' mm ' + T('inside');
     shipOptions();
