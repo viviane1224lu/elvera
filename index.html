@@ -253,6 +253,7 @@
   .buybox h1 { font-size: clamp(40px, 5vw, 62px); font-weight: 400; margin-top: 4px; }
   .buybox .tag-line { color: var(--soft); font-size: 18px; margin-top: 12px; }
   .price { font-family: Fraunces, serif; font-size: 52px; margin: 18px 0 2px; line-height: 1; }
+  .regular { margin: 8px 0 14px; color: var(--soft); font-size: 16px; }
   .price s { font-size: 24px; color: var(--faint); margin-left: 10px; }
   .badge { display: inline-block; font: 600 13px Inter; background: var(--lime); color: #1d2a0a; padding: 5px 12px; border-radius: 999px; vertical-align: middle; margin-left: 10px; }
   .opt { margin-top: 22px; font-weight: 600; font-size: 16px; }
@@ -440,12 +441,13 @@
       <div class="eyebrow">ELVÉRA ONE · Smart health ring</div>
       <h1>Care that fits <em>on your finger.</em></h1>
       <p class="tag-line">Heart, sleep and energy, looked after day and night, and explained in plain, kind words. From cycles and pregnancy to menopause and senior care, for every stage of life.</p>
-      <div class="price"><span id="priceNow">$199</span><s id="priceWas">$219</s><span class="badge">Special offer</span></div>
+      <div class="price"><span id="priceNow">$195</span><span class="badge">Introductory price</span></div>
+      <p class="regular">Regular price $248 starting February 15, 2027</p>
       <div class="opt">How many rings?</div>
       <div class="plans" id="plans">
-        <button class="on" data-n="1"><b>Just me</b><span class="pp" id="p1">$199</span><small>1 ring</small></button>
-        <button data-n="2"><span class="save" id="s2">Save $29</span><b>Family of 2</b><span class="pp" id="p2">$369</span><small>2 rings · $185 each</small></button>
-        <button data-n="3"><span class="save" id="s3">Save $68</span><b>Family of 3</b><span class="pp" id="p3">$529</span><small>3 rings · $177 each</small></button>
+        <button class="on" data-n="1"><b>Just me</b><span class="pp" id="p1">$195</span><small>1 ring</small></button>
+        <button data-n="2"><span class="save" id="s2">Save $32</span><b>Family of 2</b><span class="pp" id="p2">$358</span><small>2 rings</small></button>
+        <button data-n="3"><span class="save" id="s3">Save $75</span><b>Family of 3</b><span class="pp" id="p3">$510</span><small>3 rings · $170 each</small></button>
       </div>
       <div id="multi" style="display:none"></div>
       <div id="single">
@@ -473,7 +475,7 @@
 <div class="icons-band">
   <div class="wrap">
     <div class="strip">
-      <div><span>❤️</span>Heart rate 24/7</div>
+      <div><span>❤️</span>Heart rate, day and night</div>
       <div><span>💧</span>Blood oxygen</div>
       <div><span>🌙</span>Sleep</div>
       <div><span>🍃</span>Stress &amp; HRV</div>
@@ -500,11 +502,11 @@
     <div class="diff-grid">
       <table class="compare">
         <tr><th></th><th class="us">ELVÉRA</th><th>Most smart rings</th></tr>
-        <tr><td>Works with iPhone and Android</td><td class="us">✓</td><td class="them">Not always</td></tr><tr><td>Big text, plain words for every age</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Alerts based on your own usual</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Fitness age from everyday walks</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Stress check with calm-breathing tips</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Daily diary: meals, mood, blood pressure, sugar</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Family sharing with care alerts</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Menopause care, for women and men</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Senior care and fall-prevention tips</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Medicine reminders</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>One-tap doctor report (PDF)</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>English, 繁中, 简中, Español, 日本語</td><td class="us">✓</td><td class="them">Some</td></tr>
+        <tr><td>Big text, plain words for every age</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Gentle notes based on your own usual</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Fitness age from everyday walks</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Stress check with calm-breathing tips</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Daily diary: meals, mood, blood pressure, sugar</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Family sharing with gentle notes</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Menopause care, for women and men</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Senior care and everyday tips</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Medicine reminders</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>One-tap doctor report (PDF)</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>English, 繁中, 简中, Español, 日本語</td><td class="us">✓</td><td class="them">Some</td></tr>
       </table>
       <div class="unique">
-        <div><span>🌿</span><div><b>Menopause care, for her and for him</b><p>Sleep, hot flashes, heart and mood, with daily guidance through midlife. A first for smart rings.</p></div></div>
-        <div><span>👵</span><div><b>Senior care that keeps parents safe</b><p>Age-right step goals, fall-prevention tips, medicine alarms and an alert when heart rate looks unusual.</p></div></div>
+        <div><span>🌿</span><div><b>Menopause care, for her and for him</b><p>Sleep, temperature, heart and mood, with gentle everyday tips through midlife.</p></div></div>
+        <div><span>👵</span><div><b>Everyday care for parents</b><p>Age-right step goals, everyday tips, medicine reminders, and a note when a number differs from their own usual.</p></div></div>
         <div><span>💛</span><div><b>Family that looks out for each other</b><p>See how loved ones are doing at a glance, and get a gentle note when someone might need a call.</p></div></div>
         <div><span>🫁</span><div><b>Your fitness age, from a simple walk</b><p>Walk six minutes and see how your heart and lungs compare with people your age, then watch the number get younger.</p></div></div><div><span>🍃</span><div><b>Stress you can see, and soothe</b><p>When stress runs high for you, ELVÉRA notices and invites you to pause and breathe for a minute.</p></div></div><div><span>📄</span><div><b>Ready for the doctor</b><p>One tap turns weeks of readings into a clear PDF to print or send before your visit.</p></div></div>
         <div><span>🔠</span><div><b>Easy for every age</b><p>Big text, simple words and five languages. If Grandma can read it, everyone can.</p></div></div>
@@ -563,8 +565,8 @@
     <div>
       <div class="eyebrow">Made for real people</div>
       <h2>Compared with <em>your</em> usual, not a stranger's.</h2>
-      <p class="lead">ELVÉRA learns what's normal for you. Each day you see what's different, in big, clear text and simple words like Steady, Slow or Strong. No charts to decode.</p>
-      <div class="chips"><span class="chip">👵 Easy for every age</span><span class="chip">🔔 Your phone alerts you gently if something's off</span><span class="chip">🌐 English · 繁中 · 简中 · Español · 日本語</span></div>
+      <p class="lead">ELVÉRA learns what's usual for you. Each day you see what's different, in big, clear text and simple words like Steady, Slow or Strong. No charts to decode.</p>
+      <div class="chips"><span class="chip">👵 Easy for every age</span><span class="chip">🔔 A gentle note when something differs from your usual</span><span class="chip">🌐 English · 繁中 · 简中 · Español · 日本語</span></div>
     </div>
   </div>
 </section>
@@ -578,8 +580,8 @@
       <p class="lead">Measured automatically every hour and through the night, so you never have to remember.</p>
     </div>
     <div class="tiles">
-      <div class="tile t1"><div><h3><span>❤️</span>Heart rate</h3><p>Your phone alerts you gently if it runs far above your usual while you rest.</p></div><div class="val">63<small>bpm</small></div><span class="word">Steady</span></div>
-      <div class="tile t2"><div><h3><span>💧</span>Blood oxygen</h3><p>Checked while you sleep, with a sleep-breathing check.</p></div><div class="val">97<small>%</small></div><span class="word">Normal</span></div>
+      <div class="tile t1"><div><h3><span>❤️</span>Heart rate</h3><p>Your phone can send a gentle note when it is far from your usual while you rest.</p></div><div class="val">63<small>bpm</small></div><span class="word">Steady</span></div>
+      <div class="tile t2"><div><h3><span>💧</span>Blood oxygen</h3><p>Estimated while you sleep, compared with your own usual.</p></div><div class="val">97<small>%</small></div><span class="word">Usual</span></div>
       <div class="tile t3"><div><h3><span>🍃</span>Stress &amp; HRV</h3><p>Know when your body is tired and could use a slower day.</p></div><div class="val">44<small>ms</small></div><span class="word">Relaxed</span></div>
       <div class="tile t4"><div><h3><span>🌙</span>Sleep</h3><p>Deep, light and dream sleep, in words that make sense.</p></div><div class="val">7h 20<small>min</small></div><span class="word">Good</span></div>
       <div class="tile t5"><div><h3><span>🌡️</span>Temperature</h3><p>Small nightly changes compared with your own baseline.</p></div><div class="val">−0.2<small>°F</small></div><span class="word">Usual</span></div>
@@ -620,40 +622,38 @@
     <div class="center">
       <div class="eyebrow">Care for every stage of life</div>
       <h2>From your first cycle <em>to your golden years.</em></h2>
-      <p class="lead">Most rings stop at fitness and periods. ELVÉRA keeps caring as life changes, with guidance for menopause and for older adults that you won't find on other rings.</p>
+      <p class="lead">Most rings stop at fitness and periods. ELVÉRA keeps caring as life changes, with gentle tips for midlife and for older adults.</p>
     </div>
     <div class="care-grid">
       <div class="care-card c-women">
         <h3>Women's health</h3>
-        <p>Nightly temperature helps you follow your cycle and fertile days. Expecting? See your due date and how big your baby is, week by week.</p>
+        <p>Keep track of your cycle, and see how your nightly temperature changes. Expecting? See your due date and how big your baby is, week by week. Not for contraception or planning a pregnancy.</p>
         <span class="tag">🍅 Week 24: about a big tomato</span>
         <svg viewBox="0 0 200 200" aria-hidden="true">
           <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="16"/>
           <circle cx="100" cy="100" r="76" fill="none" stroke="#e98cb0" stroke-width="16" stroke-dasharray="78 400" stroke-linecap="round" transform="rotate(-90 100 100)"/>
           <circle cx="100" cy="100" r="76" fill="none" stroke="#9fc7e8" stroke-width="16" stroke-dasharray="68 410" stroke-dashoffset="-150" stroke-linecap="round" transform="rotate(-90 100 100)"/>
           <text x="100" y="98" text-anchor="middle" font-family="Fraunces, serif" font-size="32" fill="#6b3b4c">Day 12</text>
-          <text x="100" y="122" text-anchor="middle" font-family="Inter" font-size="13" fill="#6b3b4c">fertile window</text>
+          <text x="100" y="122" text-anchor="middle" font-family="Inter" font-size="13" fill="#6b3b4c">your cycle</text>
         </svg>
       </div>
       <div class="care-card c-meno">
-        <span class="only">Only at ELVÉRA</span>
         <h3>Menopause care</h3>
         <p>For women, and for men too. Gentle, daily guidance through the changes of midlife.</p>
         <ul>
           <li>Sleep and night-time waking, explained</li>
-          <li>Hot flashes seen in your temperature</li>
-          <li>Heart rate and stress swings, watched for you</li>
-          <li>Mood notes and tips for bones and muscle</li>
+          <li>How your temperature changes</li>
+          <li>Heart rate and stress, compared with your usual</li>
+          <li>Mood notes and everyday tips</li>
         </ul>
       </div>
       <div class="care-card c-senior">
-        <span class="only">Only at ELVÉRA</span>
         <h3>Senior care</h3>
         <p>Made for parents and grandparents, with big text and a step goal that suits their age.</p>
         <ul>
-          <li>A safe daily step goal, by age</li>
-          <li>Tips to prevent falls and stay hydrated</li>
-          <li>An alert if heart rate is unusually slow or fast</li>
+          <li>A daily step goal, by age</li>
+          <li>Tips on everyday steadiness and drinking enough</li>
+          <li>A note if heart rate differs from their own usual</li>
           <li>Medicine reminders that ring like an alarm</li>
         </ul>
       </div>
@@ -819,7 +819,7 @@
 <footer>
   <div class="wrap row">
     <div><b>ELVÉRA</b> · Care that fits on your finger.</div>
-    <div>ELVÉRA is a wellness product, not a medical device.</div>
+    <div>ELVÉRA is a wellness product, not a medical device. Notes to you or your family are not medical alarms and may be late or missing.</div>
   </div>
   <div class="wrap row" style="margin-top:14px">
     <div><a href="privacy/">Privacy</a> · <a href="terms/">Terms</a> · <a href="support/">Support</a></div>
@@ -832,8 +832,8 @@
 <script src="i18n.js"></script>
 <script>
   // ===== settings you can change =====
-  var PRICE = 199, WAS = 219;            // offer price and regular price (USD)
-  var FAMILY2 = 369, FAMILY3 = 529;      // family prices for 2 rings and 3 rings (USD); 4+ rings keep the 3-ring price per ring
+  var PRICE = 195;                       // introductory price (USD). The regular price of $248 from February 15, 2027 is a promise in the text: change PRICE that day
+  var FAMILY2 = 358, FAMILY3 = 510;      // family prices for 2 rings and 3 rings (USD); 4+ rings keep the 3-ring price per ring
   // shipping (USD) by where the parcel goes; change freely
   var SHIP = {
     US: [['Standard · 7–10 business days', 7.95], ['Expedited · 2–3 business days', 14.95], ['Overnight · 1 business day', 29.95]],
@@ -871,7 +871,7 @@
   var pick = { color: 'Silver', size: 8, qty: 1 };
   var $ = function (id) { return document.getElementById(id); };
   var money = function (n) { return '$' + n.toFixed(2); };
-  $('priceNow').textContent = '$' + PRICE; $('priceWas').textContent = '$' + WAS;
+  $('priceNow').textContent = '$' + PRICE;
 
   function show(src) {
     var m = $('mainImg');
