@@ -161,7 +161,7 @@
 
   /* extras */
   .extras { background: #fff; }
-  .ex-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 46px; }
+  .ex-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 46px; }
   .ex-grid div { border-radius: 24px; padding: 24px; background: var(--cream); }
   .ex-grid span { font-size: 30px; }
   .ex-grid h3 { font-family: Inter, sans-serif; font-weight: 700; font-size: 17px; margin-top: 10px; }
@@ -305,9 +305,9 @@
   .cart-btn b { position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--coral); color: #fff; font: 700 12px/22px Inter; display: none; }
   .cart-btn b.show { display: block; }
   .shade { position: fixed; inset: 0; background: rgba(19, 40, 74, 0.35); opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 40; }
-  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: var(--cream); z-index: 41; transform: translateX(100%); transition: transform 0.3s; display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(19, 40, 74, 0.18); }
+  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: var(--cream); z-index: 41; transform: translateX(100%); transition: transform 0.3s; display: flex; flex-direction: column; }
   body.cart-open .shade { opacity: 1; pointer-events: auto; }
-  body.cart-open .drawer { transform: none; }
+  body.cart-open .drawer { transform: none; box-shadow: -20px 0 50px rgba(19, 40, 74, 0.18); }
   .drawer header { display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; border-bottom: 1px solid var(--line); }
   .drawer header h3 { font-size: 26px; }
   .drawer .x { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; font-size: 20px; cursor: pointer; }
@@ -487,6 +487,7 @@
       <div><span>👵</span>Senior care</div>
       <div><span>👨‍👩‍👧</span>Family sharing</div>
       <div><span>💊</span>Medicine reminders</div>
+      <div><span>🔊</span>Read aloud</div>
       <div><span>📄</span>Records PDF</div>
       <div><span>✨</span>AI coach</div>
                 </div>
@@ -506,8 +507,8 @@
         <div><span>🌿</span><div><b>Midlife care</b><p>Sleep, mood and gentle everyday tips through midlife.</p></div></div>
         <div><span>👵</span><div><b>Everyday care for parents</b><p>Age-right step goals, everyday tips and medicine reminders.</p></div></div>
         <div><span>💛</span><div><b>Family that looks out for each other</b><p>See what loved ones choose to share, and get a gentle note when a number differs from their own usual.</p></div></div>
-        <div><span>🫁</span><div><b>Cardio fitness, from a simple walk</b><p>Walk six minutes and see an estimate of your cardio fitness.</p></div></div><div><span>🍃</span><div><b>Stress you can see, and soothe</b><p>When the number is above your own usual, ELVÉRA invites you to pause and breathe for a minute.</p></div></div><div><span>📄</span><div><b>Your records in one PDF</b><p>One tap puts weeks of your own records into a PDF to keep or share.</p></div></div>
-        <div><span>🔠</span><div><b>Easy for every age</b><p>Big text, simple words and five languages. If Grandma can read it, everyone can.</p></div></div>
+        <div><span>🫁</span><div><b>Cardio fitness, from a simple walk</b><p>Walk six minutes and see an estimate of your cardio fitness.</p></div></div><div><span>🍃</span><div><b>Stress you can see, and soothe</b><p>When the number is above your own usual, ELVÉRA invites you to pause and breathe for a minute.</p></div></div><div><span>📄</span><div><b>Your records in one PDF</b><p>Heart rate, sleep, stress, mood and more. One tap puts your own records into a PDF to keep or share.</p></div></div>
+        <div><span>🔠</span><div><b>Easy for every age</b><p>Big text, simple words, five languages, and it can read to you. If Grandma can use it, everyone can.</p></div></div>
       </div>
     </div>
   </div>
@@ -559,7 +560,7 @@
 <!-- YOUR USUAL -->
 <section class="usual">
   <div class="wrap">
-    <div class="phone"><img src="img/app-flower.jpg" alt="ELVÉRA compares today's numbers with your usual"></div>
+    <div class="phone"><img src="img/app-flower.jpg?v=2" alt="ELVÉRA compares today's numbers with your usual"></div>
     <div>
       <div class="eyebrow">Made for real people</div>
       <h2>Compared with <em>your</em> usual, not a stranger's.</h2>
@@ -634,6 +635,7 @@
         <h3>Senior care</h3>
         <p>Made for parents and grandparents, with big text and a step goal that suits their age.</p>
         <ul>
+          <li>Reads the numbers out loud</li>
           <li>A daily step goal, by age</li>
           <li>Everyday tips</li>
           <li>Medicine reminders</li>
@@ -681,10 +683,11 @@
     <div class="ex-grid">
       <div><span>💊</span><h3>Medicine reminders</h3><p>A reminder on your phone at the times you set.</p></div>
       <div><span>🔥</span><h3>Calorie counting</h3><p>Log your meals and see calories against a daily goal that fits you.</p></div>
-      <div><span>📄</span><h3>Records PDF</h3><p>One tap puts your own records into a PDF.</p></div>
+      <div><span>📄</span><h3>Records PDF</h3><p>Your own records and averages in one PDF. Choose what goes in.</p></div>
       <div><span>✨</span><h3>AI coach</h3><p>Everyday wellness tips, in kind words. Optional.</p></div>
       <div><span>🔔</span><h3>Gentle reminders</h3><p>Reminders and gentle notes on your phone.</p></div>
       <div><span>🔍</span><h3>Find my ring</h3><p>See if it's nearby and where it last connected.</p></div>
+      <div><span>🔊</span><h3>Read aloud</h3><p>Tap once and the phone reads your numbers to you.</p></div>
       <div><span>🔠</span><h3>Larger text</h3><p>One tap makes every word bigger.</p></div>
       <div><span>🍎</span><h3>Apple Health</h3><p>Send your ring data to Apple Health.</p></div>
       <div><span>🌐</span><h3>Five languages</h3><p>English, 繁中, 简中, Español and 日本語.</p></div>
@@ -696,12 +699,12 @@
 <section class="tour" id="tour">
   <div class="wrap">
     <div class="eyebrow">A look inside the app</div>
-    <h2>Open it, and <em>you'll know how you are.</em></h2>
+    <h2>Open it, and <em>see your day at a glance.</em></h2>
     <div class="rail">
-      <figure><div class="phone"><img src="img/app-today.jpg" alt="Today screen"></div><figcaption><b>Today</b><span>Recovery, activity and sleep at a glance.</span></figcaption></figure>
-      <figure><div class="phone"><img src="img/app-flower.jpg" alt="Compared with your usual"></div><figcaption><b>Your usual</b><span>Today's numbers, next to your own usual.</span></figcaption></figure>
-      <figure><div class="phone"><img src="img/app-workout.jpg" alt="Walk with heart-rate zones"></div><figcaption><b>Walks</b><span>Live zones as you go.</span></figcaption></figure>
-      <figure><div class="phone"><img src="img/app-settings.jpg" alt="Getting started"></div><figcaption><b>Easy setup</b><span>A four-step checklist. No account needed.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-today.jpg?v=2" alt="Today screen"></div><figcaption><b>Today</b><span>Recovery, activity and sleep at a glance.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-flower.jpg?v=2" alt="Compared with your usual"></div><figcaption><b>Your usual</b><span>Today's numbers, next to your own usual.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-workout.jpg?v=2" alt="Walk with heart-rate zones"></div><figcaption><b>Walks</b><span>Live zones as you go.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-settings.jpg?v=2" alt="Getting started"></div><figcaption><b>Easy setup</b><span>A four-step checklist. No account needed.</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -808,7 +811,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/t2cn.js"></script>
-<script src="i18n.js"></script>
+<script src="i18n.js?v=1125"></script>
 <script>
   // ===== settings you can change =====
   var PRICE = 195;                       // introductory price (USD). The regular price of $248 from February 15, 2027 is a promise in the text: change PRICE that day
