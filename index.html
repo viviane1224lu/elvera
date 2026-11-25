@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ELVÉRA ONE</title>
-<meta name="description" content="ELVÉRA is a smart health ring and app that looks after you and your family, in plain words, for every age.">
+<meta name="description" content="ELVÉRA is a health ring you can understand, and a little more peace of mind for family far away.">
 <link rel="icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -251,6 +251,9 @@
   .thumbs button.on { border-color: var(--ocean); }
   .thumbs img { width: 100%; height: 100%; object-fit: contain; }
   .buybox h1 { font-size: clamp(40px, 5vw, 62px); font-weight: 400; margin-top: 4px; }
+  .buybox h1 em { display: block; text-wrap: balance; }
+  .buybox .tag-line { text-wrap: pretty; }
+  html[lang^="zh"] .buybox h1 em { word-break: keep-all; }  /* breaks only where the text says so */
   .buybox .tag-line { color: var(--soft); font-size: 18px; margin-top: 12px; }
   .price { font-family: Fraunces, serif; font-size: 52px; margin: 18px 0 2px; line-height: 1; }
   .regular { margin: 8px 0 14px; color: var(--soft); font-size: 16px; }
@@ -439,8 +442,8 @@
     </div>
     <div class="buybox">
       <div class="eyebrow">ELVÉRA ONE · Smart health ring</div>
-      <h1>Care that fits <em>on your finger.</em></h1>
-      <p class="tag-line">Heart, sleep and energy, looked after day and night, and explained in plain, kind words. From cycles and pregnancy to menopause and senior care, for every stage of life.</p>
+      <h1>A health ring you can understand. <em>A little more peace of mind, from far away.</em></h1>
+      <p class="tag-line">Heart rate, sleep and activity, explained in plain, kind words. For every age, and for family near or far.</p>
       <div class="price"><span id="priceNow">$195</span><span class="badge">Introductory price</span></div>
       <p class="regular">Regular price $248 starting February 15, 2027</p>
       <div class="opt">How many rings?</div>
@@ -480,12 +483,11 @@
       <div><span>🌙</span>Sleep</div>
       <div><span>🍃</span>Stress &amp; HRV</div>
       <div><span>🫁</span>Cardio fitness</div>
-      <div><span>🌸</span>Women's health</div>
-      <div><span>🌿</span>Menopause care</div>
+      <div><span>🌿</span>Midlife care</div>
       <div><span>👵</span>Senior care</div>
       <div><span>👨‍👩‍👧</span>Family sharing</div>
       <div><span>💊</span>Medicine reminders</div>
-      <div><span>📄</span>Doctor report</div>
+      <div><span>📄</span>Records PDF</div>
       <div><span>✨</span>AI coach</div>
                 </div>
   </div>
@@ -497,18 +499,14 @@
     <div class="center">
       <div class="eyebrow">Why ELVÉRA is different</div>
       <h2>Not just another ring. <em>A ring that cares.</em></h2>
-      <p class="lead">Other rings are built for athletes and data lovers. ELVÉRA is built for real families, from busy moms to grandparents.</p>
+      <p class="lead">ELVÉRA is built for real families, from busy moms to grandparents.</p>
     </div>
-    <div class="diff-grid">
-      <table class="compare">
-        <tr><th></th><th class="us">ELVÉRA</th><th>Most smart rings</th></tr>
-        <tr><td>Big text, plain words for every age</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Gentle notes based on your own usual</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Fitness age from everyday walks</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Stress check with calm-breathing tips</td><td class="us">✓</td><td class="them">Some</td></tr><tr><td>Daily diary: meals, mood, blood pressure, sugar</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Family sharing with gentle notes</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Menopause care, for women and men</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>Senior care and everyday tips</td><td class="us">✓</td><td class="them">No</td></tr><tr><td>Medicine reminders</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>One-tap doctor report (PDF)</td><td class="us">✓</td><td class="them">Rarely</td></tr><tr><td>English, 繁中, 简中, Español, 日本語</td><td class="us">✓</td><td class="them">Some</td></tr>
-      </table>
+    <div class="diff-grid" style="grid-template-columns:1fr">
       <div class="unique">
-        <div><span>🌿</span><div><b>Menopause care, for her and for him</b><p>Sleep, temperature, heart and mood, with gentle everyday tips through midlife.</p></div></div>
-        <div><span>👵</span><div><b>Everyday care for parents</b><p>Age-right step goals, everyday tips, medicine reminders, and a note when a number differs from their own usual.</p></div></div>
-        <div><span>💛</span><div><b>Family that looks out for each other</b><p>See how loved ones are doing at a glance, and get a gentle note when someone might need a call.</p></div></div>
-        <div><span>🫁</span><div><b>Your fitness age, from a simple walk</b><p>Walk six minutes and see how your heart and lungs compare with people your age, then watch the number get younger.</p></div></div><div><span>🍃</span><div><b>Stress you can see, and soothe</b><p>When stress runs high for you, ELVÉRA notices and invites you to pause and breathe for a minute.</p></div></div><div><span>📄</span><div><b>Ready for the doctor</b><p>One tap turns weeks of readings into a clear PDF to print or send before your visit.</p></div></div>
+        <div><span>🌿</span><div><b>Midlife care</b><p>Sleep, mood and gentle everyday tips through midlife.</p></div></div>
+        <div><span>👵</span><div><b>Everyday care for parents</b><p>Age-right step goals, everyday tips and medicine reminders.</p></div></div>
+        <div><span>💛</span><div><b>Family that looks out for each other</b><p>See what loved ones choose to share, and get a gentle note when a number differs from their own usual.</p></div></div>
+        <div><span>🫁</span><div><b>Cardio fitness, from a simple walk</b><p>Walk six minutes and see an estimate of your cardio fitness.</p></div></div><div><span>🍃</span><div><b>Stress you can see, and soothe</b><p>When the number is above your own usual, ELVÉRA invites you to pause and breathe for a minute.</p></div></div><div><span>📄</span><div><b>Your records in one PDF</b><p>One tap puts weeks of your own records into a PDF to keep or share.</p></div></div>
         <div><span>🔠</span><div><b>Easy for every age</b><p>Big text, simple words and five languages. If Grandma can read it, everyone can.</p></div></div>
       </div>
     </div>
@@ -530,15 +528,15 @@
       </div>
       <div class="moment">
         <div class="time" style="background:#e3f3df">🚶</div>
-        <div class="card"><small>10:00 AM</small><h3>A walk outside</h3><p>Colors show how hard you're working, and your cardio fitness updates.</p><div class="say">"Fat-burn zone. Nice pace!"</div></div>
+        <div class="card"><small>10:00 AM</small><h3>A walk outside</h3><p>Colors show how hard you're working as you walk.</p><div class="say">"Fat-burn zone. Nice pace!"</div></div>
       </div>
       <div class="moment">
         <div class="time" style="background:#fff1d6">💊</div>
-        <div class="card"><small>2:00 PM</small><h3>A gentle nudge</h3><p>Your medicine reminder rings like an alarm, on your phone and your watch.</p><div class="say">"Time for your afternoon pills."</div></div>
+        <div class="card"><small>2:00 PM</small><h3>A gentle nudge</h3><p>Your medicine reminder rings on your phone.</p><div class="say">"Time for your afternoon pills."</div></div>
       </div>
       <div class="moment">
         <div class="time" style="background:#e5f0fd">🏡</div>
-        <div class="card"><small>9:00 PM</small><h3>Family, close by</h3><p>Your daughter sees you had a good day, without a single phone call.</p><div class="say">"Mom's doing great today 💛"</div></div>
+        <div class="card"><small>9:00 PM</small><h3>Family, close by</h3><p>Your daughter sees the numbers you chose to share.</p><div class="say">"Mom took her walk today 💛"</div></div>
       </div>
     </div>
   </div>
@@ -576,17 +574,17 @@
   <div class="wrap">
     <div class="center">
       <div class="eyebrow">Always on, all day</div>
-      <h2>Seven things your body <em>is telling you.</em></h2>
-      <p class="lead">Measured automatically every hour and through the night, so you never have to remember.</p>
+      <h2>Seven numbers, <em>in plain words.</em></h2>
+      <p class="lead">Measured automatically through the day and night.</p>
     </div>
     <div class="tiles">
       <div class="tile t1"><div><h3><span>❤️</span>Heart rate</h3><p>Your phone can send a gentle note when it is far from your usual while you rest.</p></div><div class="val">63<small>bpm</small></div><span class="word">Steady</span></div>
       <div class="tile t2"><div><h3><span>💧</span>Blood oxygen</h3><p>Estimated while you sleep, compared with your own usual.</p></div><div class="val">97<small>%</small></div><span class="word">Usual</span></div>
-      <div class="tile t3"><div><h3><span>🍃</span>Stress &amp; HRV</h3><p>Know when your body is tired and could use a slower day.</p></div><div class="val">44<small>ms</small></div><span class="word">Relaxed</span></div>
+      <div class="tile t3"><div><h3><span>🍃</span>Stress &amp; HRV</h3><p>See how today compares with your own usual.</p></div><div class="val">44<small>ms</small></div><span class="word">Relaxed</span></div>
       <div class="tile t4"><div><h3><span>🌙</span>Sleep</h3><p>Deep, light and dream sleep, in words that make sense.</p></div><div class="val">7h 20<small>min</small></div><span class="word">Good</span></div>
       <div class="tile t5"><div><h3><span>🌡️</span>Temperature</h3><p>Small nightly changes compared with your own baseline.</p></div><div class="val">−0.2<small>°F</small></div><span class="word">Usual</span></div>
       <div class="tile t6"><div><h3><span>👟</span>Steps</h3><p>Steps, distance and calories, with a goal that fits your age.</p></div><div class="val">6,240<small>steps</small></div><span class="word">On track</span></div>
-      <div class="tile t7"><div><h3><span>🫁</span>Cardio fitness</h3><p>Measured on your everyday walks. See your fitness age, and how you compare with people your age.</p></div><div class="val">42<small>VO2 Max</small></div><span class="word">Fitness age 38</span></div>
+      <div class="tile t7"><div><h3><span>🫁</span>Cardio fitness</h3><p>Estimated on your everyday walks.</p></div><div class="val">42<small>VO2 Max</small></div><span class="word">Estimate</span></div>
     </div>
   </div>
 </section>
@@ -601,15 +599,13 @@
         <path d="M30 170 A120 120 0 0 1 270 170" fill="none" stroke="url(#g1)" stroke-width="22" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="70"/>
         <circle cx="238" cy="92" r="13" fill="#fff" stroke="#2b9e6f" stroke-width="5"/>
         <text x="150" y="138" text-anchor="middle" font-family="Fraunces, serif" font-size="58" fill="#1d2733">42</text>
-        <text x="150" y="166" text-anchor="middle" font-family="Inter" font-size="14" fill="#5e6873">cardio fitness · Excellent</text>
+        <text x="150" y="166" text-anchor="middle" font-family="Inter" font-size="14" fill="#5e6873">cardio fitness · estimate</text>
       </svg>
-      <p style="margin-top:18px;font-family:Fraunces,serif;font-size:22px">Your fitness age: <b style="color:var(--green)">38</b></p>
-      <p style="color:var(--soft);font-size:15px">for a 52-year-old woman</p>
     </div>
     <div>
       <div class="eyebrow">Cardio fitness</div>
-      <h2>Know your fitness age. <em>Watch it get younger.</em></h2>
-      <p class="lead">Just go for a walk. After six minutes, ELVÉRA works out your VO2 Max, a well-known measure of heart and lung fitness, and shows how you compare with people your age.</p>
+      <h2>A simple walk <em>is enough.</em></h2>
+      <p class="lead">Just go for a walk. After six minutes, ELVÉRA estimates your cardio fitness (VO2 Max), for reference.</p>
       <div class="zones"><div><i style="background:#8fb3d9"></i>Warm-up</div><div><i style="background:#4fb37a"></i>Fat burn</div><div><i style="background:#e8c547"></i>Aerobic</div><div><i style="background:#f08a3c"></i>Hard</div><div><i style="background:#e4572e"></i>Max</div></div>
       <p style="margin-top:12px;color:var(--soft);font-size:15px">Five heart-rate zones light up live as you move.</p>
     </div>
@@ -621,28 +617,15 @@
   <div class="wrap">
     <div class="center">
       <div class="eyebrow">Care for every stage of life</div>
-      <h2>From your first cycle <em>to your golden years.</em></h2>
-      <p class="lead">Most rings stop at fitness and periods. ELVÉRA keeps caring as life changes, with gentle tips for midlife and for older adults.</p>
+      <h2>For midlife, <em>and golden years.</em></h2>
+      <p class="lead">Gentle everyday tips for midlife and for older adults, and an easy way to stay close to family.</p>
     </div>
     <div class="care-grid">
-      <div class="care-card c-women">
-        <h3>Women's health</h3>
-        <p>Keep track of your cycle, and see how your nightly temperature changes. Expecting? See your due date and how big your baby is, week by week. Not for contraception or planning a pregnancy.</p>
-        <span class="tag">🍅 Week 24: about a big tomato</span>
-        <svg viewBox="0 0 200 200" aria-hidden="true">
-          <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="16"/>
-          <circle cx="100" cy="100" r="76" fill="none" stroke="#e98cb0" stroke-width="16" stroke-dasharray="78 400" stroke-linecap="round" transform="rotate(-90 100 100)"/>
-          <circle cx="100" cy="100" r="76" fill="none" stroke="#9fc7e8" stroke-width="16" stroke-dasharray="68 410" stroke-dashoffset="-150" stroke-linecap="round" transform="rotate(-90 100 100)"/>
-          <text x="100" y="98" text-anchor="middle" font-family="Fraunces, serif" font-size="32" fill="#6b3b4c">Day 12</text>
-          <text x="100" y="122" text-anchor="middle" font-family="Inter" font-size="13" fill="#6b3b4c">your cycle</text>
-        </svg>
-      </div>
       <div class="care-card c-meno">
-        <h3>Menopause care</h3>
-        <p>For women, and for men too. Gentle, daily guidance through the changes of midlife.</p>
+        <h3>Midlife care</h3>
+        <p>Gentle everyday tips for a busy time of life.</p>
         <ul>
-          <li>Sleep and night-time waking, explained</li>
-          <li>How your temperature changes</li>
+          <li>How you slept, in plain words</li>
           <li>Heart rate and stress, compared with your usual</li>
           <li>Mood notes and everyday tips</li>
         </ul>
@@ -652,14 +635,13 @@
         <p>Made for parents and grandparents, with big text and a step goal that suits their age.</p>
         <ul>
           <li>A daily step goal, by age</li>
-          <li>Tips on everyday steadiness and drinking enough</li>
-          <li>A note if heart rate differs from their own usual</li>
-          <li>Medicine reminders that ring like an alarm</li>
+          <li>Everyday tips</li>
+          <li>Medicine reminders</li>
         </ul>
       </div>
       <div class="care-card c-family">
         <h3>Family sharing</h3>
-        <p>Live far from Mom? See that she slept well and took her walk, and get a gentle note if she might need a call.</p>
+        <p>Live far from Mom? See the numbers she chooses to share, like her sleep and steps.</p>
         <span class="tag">💛 You choose what to share</span>
         <svg viewBox="0 0 220 200" aria-hidden="true">
           <path d="M110 60 L45 140 M110 60 L175 140 M45 140 H175" stroke="#7fa8d9" stroke-width="3" stroke-dasharray="6 7" fill="none"/>
@@ -670,7 +652,7 @@
         </svg>
       </div>
     </div>
-    <p class="only-note">Women's health · Menopause · Senior care · Family, all in one ring.</p>
+    <p class="only-note">Midlife care · Senior care · Family, all in one ring.</p>
   </div>
 </section>
 
@@ -680,13 +662,11 @@
     <div class="center">
       <div class="eyebrow">Your daily health diary</div>
       <h2>Everything about your day, <em>in one gentle place.</em></h2>
-      <p class="lead">The ring measures. You add the rest in a tap or two, and ELVÉRA keeps it all together, ready to share with your doctor. Readings you type in are for your own records, not a diagnosis.</p>
+      <p class="lead">The ring measures. You add the rest in a tap or two, and ELVÉRA keeps it all together.</p>
     </div>
-    <div class="diary-grid">
+    <div class="diary-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
       <div><span style="background:#fdeadc">🍱</span><h3>Meals</h3><p>Snap a photo of breakfast, lunch or dinner. See your week of meals in a calendar and an album.</p><div class="ex">Lunch · salmon rice bowl 📷</div></div>
       <div><span style="background:#e6e4fb">😊</span><h3>Mood &amp; journal</h3><p>Note how you feel and how tired you are, and keep a little journal with a photo and a few words. Spot the days that lift you up.</p><div class="ex">Journal: "Lovely walk with Mia today 🌸"</div></div>
-      <div><span style="background:#fde4dc">🩺</span><h3>Blood pressure</h3><p>Type in your own cuff readings, or bring them in from Apple Health, and see them over time.</p><div class="ex">119 / 77 · this morning</div></div>
-      <div><span style="background:#dcf3f0">🩸</span><h3>Blood sugar</h3><p>Type in your own meter readings before or after meals, or bring them in from Apple Health, for your records.</p><div class="ex">97 mg/dL · before breakfast</div></div>
     </div>
   </div>
 </section>
@@ -699,11 +679,11 @@
       <h2>Little things that <em>make a big difference.</em></h2>
     </div>
     <div class="ex-grid">
-      <div><span>💊</span><h3>Medicine reminders</h3><p>Rings like an alarm, so no dose is missed.</p></div>
+      <div><span>💊</span><h3>Medicine reminders</h3><p>A reminder on your phone at the times you set.</p></div>
       <div><span>🔥</span><h3>Calorie counting</h3><p>Log your meals and see calories against a daily goal that fits you.</p></div>
-      <div><span>📄</span><h3>Doctor report</h3><p>One tap makes a clear PDF for your next visit.</p></div>
-      <div><span>✨</span><h3>AI coach</h3><p>Ask about your numbers, get kind, practical tips.</p></div>
-      <div><span>🔔</span><h3>Phone &amp; watch alerts</h3><p>Reminders and body alerts ring on your phone, and buzz on your smartwatch too if you wear one.</p></div>
+      <div><span>📄</span><h3>Records PDF</h3><p>One tap puts your own records into a PDF.</p></div>
+      <div><span>✨</span><h3>AI coach</h3><p>Everyday wellness tips, in kind words. Optional.</p></div>
+      <div><span>🔔</span><h3>Gentle reminders</h3><p>Reminders and gentle notes on your phone.</p></div>
       <div><span>🔍</span><h3>Find my ring</h3><p>See if it's nearby and where it last connected.</p></div>
       <div><span>🔠</span><h3>Larger text</h3><p>One tap makes every word bigger.</p></div>
       <div><span>🍎</span><h3>Apple Health</h3><p>Send your ring data to Apple Health.</p></div>
@@ -719,9 +699,8 @@
     <h2>Open it, and <em>you'll know how you are.</em></h2>
     <div class="rail">
       <figure><div class="phone"><img src="img/app-today.jpg" alt="Today screen"></div><figcaption><b>Today</b><span>Recovery, activity and sleep at a glance.</span></figcaption></figure>
-      <figure><div class="phone"><img src="img/app-flower.jpg" alt="Compared with your usual"></div><figcaption><b>Your usual</b><span>Cardio fitness in the middle, the rest like petals.</span></figcaption></figure>
-      <figure><div class="phone"><img src="img/app-workout.jpg" alt="Walk with heart-rate zones"></div><figcaption><b>Walks</b><span>Live zones and cardio fitness as you go.</span></figcaption></figure>
-      <figure><div class="phone"><img src="img/app-cardio.jpg" alt="Cardio fitness"></div><figcaption><b>Fitness age</b><span>How you compare, and how to improve.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-flower.jpg" alt="Compared with your usual"></div><figcaption><b>Your usual</b><span>Today's numbers, next to your own usual.</span></figcaption></figure>
+      <figure><div class="phone"><img src="img/app-workout.jpg" alt="Walk with heart-rate zones"></div><figcaption><b>Walks</b><span>Live zones as you go.</span></figcaption></figure>
       <figure><div class="phone"><img src="img/app-settings.jpg" alt="Getting started"></div><figcaption><b>Easy setup</b><span>A four-step checklist. No account needed.</span></figcaption></figure>
     </div>
   </div>
@@ -767,11 +746,11 @@
   <div class="wrap">
     <div>
       <div class="eyebrow" style="color:var(--lime)">Try it first, free</div>
-      <h2>Get the app today, <em style="color:var(--sky)">even before your ring.</em></h2>
-      <p class="lead">Download ELVÉRA and turn on Demo mode to explore every screen. When your ring arrives, you're already at home.</p>
+      <h2>Try the app, <em style="color:var(--sky)">even before your ring.</em></h2>
+      <p class="lead">Demo mode lets you explore every screen before your ring arrives.</p>
       <div class="stores">
-        <a class="store" href="https://apps.apple.com/app/id6834624746"><span class="ic"></span><span>Download on the<b>App Store</b></span></a>
-        <a class="store" href="get/"><span class="ic">▶</span><span>Get it on<b>Google Play</b></span></a>
+        <a class="store" href="get/"><span class="ic"></span><span>iPhone<b>Coming soon</b></span></a>
+        <a class="store" href="get/"><span class="ic">▶</span><span>Android<b>Coming soon</b></span></a>
       </div>
     </div>
     <div class="qr-card">
@@ -787,12 +766,12 @@
   <div class="wrap" style="max-width:820px">
     <div class="eyebrow">Questions</div>
     <h2>Good to know</h2>
-        <details><summary>Can I try the app before buying?</summary><p>Yes. Download ELVÉRA and turn on Demo mode to explore every screen with sample data.</p></details>
+        <details><summary>Can I try the app before buying?</summary><p>Yes. Demo mode in the app shows every screen with sample data.</p></details>
     <details><summary>Is it easy for my parents to use?</summary><p>That's who we designed it for. Big text, simple words, and family members can see how each other are doing.</p></details>
     <details><summary>How do I choose a size?</summary><p>We suggest your index or middle finger. The right size feels snug without spinning. Measure the inside of a ring that fits you and match its diameter:</p><table id="sizeTable"><tr><th>Size</th><th>Inside diameter</th></tr></table></details>
     <details><summary>What if it doesn't fit, or I change my mind?</summary><p>Every order comes with 30-day returns. Send the ring back within 30 days of delivery and we'll make it right. Every ring also has a 1-year warranty.</p></details>
-    <details><summary>Where is my data stored?</summary><p>Your health data stays on your own phone unless you choose to share it with family. You can turn sharing off at any time.</p></details>
-    <details><summary>Is ELVÉRA a medical device?</summary><p>No. ELVÉRA is for everyday wellness and is not intended to diagnose, treat or prevent any disease. Always talk with your doctor about your health.</p></details>
+    <details><summary>Where is my data stored?</summary><p>On your own phone. Some data leaves it only if you turn on family sharing, agree to use AI, or press SOS. Your name and age are stored on our server when you join a family group. See our Privacy policy.</p></details>
+    <details><summary>Is ELVÉRA a medical device?</summary><p>No. ELVÉRA is for everyday wellness and is not intended to diagnose, treat, cure or prevent any disease. Always talk with your doctor about your health.</p></details>
   </div>
 </section>
 
@@ -818,11 +797,11 @@
 
 <footer>
   <div class="wrap row">
-    <div><b>ELVÉRA</b> · Care that fits on your finger.</div>
+    <div><b>ELVÉRA</b> · A health ring you can understand.</div>
     <div>ELVÉRA is a wellness product, not a medical device. Notes to you or your family are not medical alarms and may be late or missing.</div>
   </div>
   <div class="wrap row" style="margin-top:14px">
-    <div><a href="privacy/">Privacy</a> · <a href="terms/">Terms</a> · <a href="support/">Support</a></div>
+    <div><a href="privacy/">Privacy</a> · <a href="terms/">Terms</a> · <a href="health-data/">Consumer Health Data</a> · <a href="support/">Support</a></div>
     <div><a href="mailto:support@elveraring.com">support@elveraring.com</a></div>
   </div>
 </footer>
