@@ -148,7 +148,7 @@
   .care-card li { padding: 6px 0 6px 28px; position: relative; font-size: 16px; }
   .care-card li::before { content: "✓"; position: absolute; left: 4px; font-weight: 700; }
   .only-note { margin-top: 26px; text-align: center; color: var(--soft); font-size: 16px; }
-  .care-card { border-radius: 32px; padding: 36px; min-height: 400px; position: relative; overflow: hidden; }
+  .care-card { border-radius: 32px; padding: 36px; min-height: 340px; position: relative; overflow: hidden; }
   .care-card h3 { font-size: 30px; }
   .care-card p { margin-top: 12px; font-size: 17px; max-width: 400px; }
   .c-women { background: linear-gradient(160deg, #fdeaf0, #f9d6e1); }
@@ -156,7 +156,9 @@
   .c-family { background: linear-gradient(160deg, #e5f0fd, #cfe2f8); }
   .c-family p { color: #2d4a6b; }
   .care-card svg { position: absolute; right: 18px; bottom: 18px; width: 36%; max-width: 190px; }
-  .c-women p, .c-family p { max-width: 62%; }
+  .c-women li { color: #6b3b4c; }
+  .c-women .small-note { font-size: 14px; margin-top: 18px; }
+  .c-family p { max-width: 62%; }
   .care-card .tag { display: inline-block; margin-top: 18px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.75); font-size: 15px; font-weight: 600; }
 
   /* extras */
@@ -402,7 +404,8 @@
     body { font-size: 17px; }
     .timeline, .tiles, .power-grid, .ex-grid { grid-template-columns: 1fr; }
     .phone { width: 250px; }
-    .care-card { min-height: 440px; padding: 28px; }
+    .care-card { min-height: 0; padding: 28px; }
+    .c-family { min-height: 400px; }
     .care-card svg { width: 60%; }
     .bubble { font-size: 12px; padding: 8px 10px; }
     .bubble b { font-size: 16px; }
@@ -483,6 +486,7 @@
       <div><span>🌙</span>Sleep</div>
       <div><span>🍃</span>Stress &amp; HRV</div>
       <div><span>🫁</span>Cardio fitness</div>
+      <div><span>🌸</span>Period and pregnancy</div>
       <div><span>🌿</span>Midlife care</div>
       <div><span>👵</span>Senior care</div>
       <div><span>👨‍👩‍👧</span>Family sharing</div>
@@ -618,10 +622,20 @@
   <div class="wrap">
     <div class="center">
       <div class="eyebrow">Care for every stage of life</div>
-      <h2>For midlife, <em>and golden years.</em></h2>
-      <p class="lead">Gentle everyday tips for midlife and for older adults, and an easy way to stay close to family.</p>
+      <h2>At every age, <em>by your side.</em></h2>
+      <p class="lead">Gentle everyday tips for different times of life, and an easy way to stay close to family.</p>
     </div>
     <div class="care-grid">
+      <div class="care-card c-women">
+        <h3>Period and pregnancy</h3>
+        <p>Note a date, and it counts the days for you.</p>
+        <ul>
+          <li>Which day of your period</li>
+          <li>Which week of pregnancy</li>
+          <li>Dates stay on your phone only</li>
+        </ul>
+        <p class="small-note">It only counts days. Always follow what your doctor says.</p>
+      </div>
       <div class="care-card c-meno">
         <h3>Midlife care</h3>
         <p>Gentle everyday tips for a busy time of life.</p>
@@ -654,7 +668,7 @@
         </svg>
       </div>
     </div>
-    <p class="only-note">Midlife care · Senior care · Family, all in one ring.</p>
+    <p class="only-note">Period and pregnancy · Midlife care · Senior care · Family, all in one ring.</p>
   </div>
 </section>
 
@@ -811,7 +825,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/t2cn.js"></script>
-<script src="i18n.js?v=1125"></script>
+<script src="i18n.js?v=1125b"></script>
 <script>
   // ===== settings you can change =====
   var PRICE = 195;                       // introductory price (USD). The regular price of $248 from February 15, 2027 is a promise in the text: change PRICE that day
